@@ -1,3 +1,10 @@
 node_modules/
 .cache/
 public
+package-lock.json
+
+Copy.gitignore: copy code to clipboard
+# dotenv environment variables files
+.env
+.env.development
+.env.production
