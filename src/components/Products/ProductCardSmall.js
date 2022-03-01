@@ -1,16 +1,8 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 import React from "react";
 
 const ProductCardSmall = ({ id, mainImage, product, currency, unit_amount }) => {
-    // const image = getImage(
-    //   childImageSharp {
-    //     gatsbyImageData(
-    //       width: 200
-    //       placeholder: BLURRED
-    //       formats: [AUTO, WEBP, AVIF]
-    //     )
-    //   }
-    // )
     const formatPrice = (amount, currency) => {
         let price = (amount / 100).toFixed(2)
         let numberFormat = new Intl.NumberFormat(["en-US"], {
@@ -20,15 +12,14 @@ const ProductCardSmall = ({ id, mainImage, product, currency, unit_amount }) => 
         })
         return numberFormat.format(price)
       }
-      // console.log(mainImage)
     return (
-        <div>
+        <Link to={`/merch/product/${id}`} key={id}>
             {product.name}
             {formatPrice(unit_amount, currency)}
             {mainImage &&
             <GatsbyImage alt={product.name} image={mainImage.node.childImageSharp.gatsbyImageData} />
 }
-        </div>
+        </Link>
     )
 }
 

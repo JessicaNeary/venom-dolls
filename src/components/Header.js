@@ -8,7 +8,7 @@ function Header({ path, clearHeader }) {
         path === page ? 'text-secondary' : 'text-white'
     );
     return (
-        <div className={`container-fluid position-absolute z-index-2 ${clearHeader ? 'bg-transparent' : 'bg-dark'}`}>
+        <div className={`container-fluid z-index-2 ${clearHeader ? 'position-absolute bg-transparent' : 'bg-dark'}`}>
         <header className="row py-2">
             <a href="/" className="d-flex align-items-center col-2 mb-md-0 text-dark text-decoration-none">
                 <Logo className="bi me-2" fill="#fffff" width="90" height="60" aria-label="venom-dolls-logo" />
