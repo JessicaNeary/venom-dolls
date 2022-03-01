@@ -4,7 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 function MerchHeader() {
     return (
-        <Carousel className="position-absolute top-0 z-index-1">
+        <Carousel>
             <Carousel.Item>
                 <StaticImage src="../images/merch/header/merch-all.jpg" className="d-block w-100" alt="merch group shoot" />
             </Carousel.Item>

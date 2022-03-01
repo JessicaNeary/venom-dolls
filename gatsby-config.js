@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
       title: `Venom Dolls`,
@@ -29,5 +33,14 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
+  },
+  `gatsby-plugin-react-helmet`,
+  {
+    resolve: `gatsby-source-stripe`,
+    options: {
+      objects: ["Price", "Product"],
+      secretKey: process.env.STRIPE_SECRET_KEY,
+      downloadFiles: true,
+    },
   }]
 };
