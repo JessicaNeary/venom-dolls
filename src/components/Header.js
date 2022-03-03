@@ -3,14 +3,17 @@ import { Link } from "gatsby";
 
 import Logo from "../images/logo-white.svg";
 
-function Header({ path, pageRef, clearHeader }) {
+function Header({ path, pageRef, clearHeader, handleCartClick }) {
+    const toggleCart = () => {
+        handleCartClick();
+    }
     const [ bgColor, setBg ] = useState(clearHeader ? 'bg-transparent' : 'bg-dark')
     useEffect(() => {
         const checkBackground = () => {
-            if (bgColor === 'bg-transparent' && window.pageYOffset >= pageRef.current.offsetTop) {
+            if (bgColor === 'bg-transparent' && pageRef.current && window.pageYOffset >= pageRef.current.offsetTop) {
                 setBg('bg-dark');
             }        
-            else if (bgColor === 'bg-dark' && window.pageYOffset < pageRef.current.offsetTop) {
+            else if (bgColor === 'bg-dark' && pageRef.current && window.pageYOffset < pageRef.current.offsetTop) {
                 setBg('bg-transparent');
             }
         };
@@ -22,7 +25,7 @@ function Header({ path, pageRef, clearHeader }) {
         path === page ? 'text-secondary' : 'text-white'
     );
     return (
-        <div className={`container-fluid header-container z-index-2 position-fixed w-100 ${bgColor}`}>
+        <div className={`container-fluid header-container z-index-2 w-100 ${clearHeader ? 'position-fixed' : 'position-absolute'} ${bgColor}`}>
         <header className="row py-2">
             <a href="/" className="d-flex align-items-center col-2 mb-md-0 text-dark text-decoration-none">
                 <Logo className="bi me-2" fill="#fffff" width="90" height="60" aria-label="venom-dolls-logo" />
@@ -36,7 +39,7 @@ function Header({ path, pageRef, clearHeader }) {
             </ul>
 
             <div className="col d-flex justify-content-end align-items-center mb-md-0 mr-2">
-                <div>Cart</div>
+                <div onClick={toggleCart}>Cart</div>
             </div>
         </header>
         </div>

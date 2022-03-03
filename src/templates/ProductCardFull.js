@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
+import { useShoppingCart } from "use-shopping-cart";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
@@ -9,6 +10,20 @@ import Layout from "../components/Layout"
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const [ focusedImage, setFocus ] = useState(images.edges[0].node);
     const [ size, setSize ] = useState("SIZING");
+    
+    const { addItem } = useShoppingCart();
+    const handleBuy = () => {
+      if ( size !== "SIZING" ) {
+        addItem({          
+          sku: stripePrice.id,
+          name: stripePrice.product.name,
+          price: stripePrice.unit_amount,
+          currency: stripePrice.currency,
+          productMetadata: { size: size }
+        });
+      }
+    }
+
     return (
     <Layout path="/merch">
       <div className="row justify-content-center m-3 mt-4">
@@ -36,7 +51,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
               <Dropdown.Item onClick={() => setSize("XXL")}>XXL</Dropdown.Item>
               </Dropdown.Menu>
           </Dropdown>
-          <button className="w-100 mt-2 p-1 btn-dark rounded-0">BUY NOW</button>
+          <button className="w-100 mt-2 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
         </div>
     </div>
     </Layout>
