@@ -9,7 +9,6 @@ import Layout from "../components/Layout"
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const [ focusedImage, setFocus ] = useState(images.edges[0].node);
     const [ size, setSize ] = useState("SIZING");
-    console.log(images)
     return (
     <Layout path="/merch">
       <div className="row justify-content-center m-3 mt-4">
@@ -62,7 +61,7 @@ query($productId: String, $imageLocation: String) {
             relativePath
             name
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
             }
           }
         }

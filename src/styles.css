@@ -5,3 +5,20 @@
 .z-index-2 {
     z-index: 2 !important;
 }
+
+.link-styles {
+    text-decoration: none!;
+    color: black;
+    text-transform: uppercase;
+}
+
+.shopNowButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 500;
+}
+
+.header-container {
+    transition: background-color 0.3s;
+}
