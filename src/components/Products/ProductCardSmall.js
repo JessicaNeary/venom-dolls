@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import React from "react";
 import formatPrice from "../../utils/formatPrice";
@@ -9,7 +9,7 @@ const ProductCardSmall = ({ id, mainImage, product, currency, unit_amount }) => 
             {product.name}
             {formatPrice(unit_amount, currency)}
             {mainImage &&
-            <GatsbyImage alt={product.name} image={mainImage.node.childImageSharp.gatsbyImageData} />
+            <GatsbyImage alt={product.name} image={getImage(mainImage.node)} />
 }
         </Link>
     )

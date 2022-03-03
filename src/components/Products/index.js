@@ -25,7 +25,7 @@ function Products(props) {
                 }
             }
           }
-          images: allFile(filter: {relativeDirectory: {eq: "merch/products"}}) {
+          images: allFile(filter: {relativeDirectory: {regex: "/(merch/products)/"}}) {
             edges {
               node {
                 relativePath
@@ -42,9 +42,8 @@ function Products(props) {
         <div className="row">
           {prices.edges.map(({ node: price }) => {
             const mainImage = images.edges.find(n => {
-              return n.node.relativePath.includes(price.product.images[0]);
+              return n.node.relativePath.includes(price.product.images[0]) && n.node.relativePath.match(/1/);
             });
-
             return (
             <div className="col-4" key={price.id} >
             <ProductCardSmall mainImage={mainImage}{...price} />

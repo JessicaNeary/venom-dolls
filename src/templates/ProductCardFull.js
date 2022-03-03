@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage  } from "gatsby-plugin-image"
+import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
 
 import formatPrice from "../utils/formatPrice";
@@ -14,12 +14,12 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
     <Layout path="/merch">
       <div className="row justify-content-center m-3 mt-4">
         <div className="col-12 col-md-10 col-lg-5 mb-4">
-          <GatsbyImage alt={focusedImage.name} image={focusedImage.childImageSharp.gatsbyImageData} />
+          <GatsbyImage alt={focusedImage.name} image={getImage(focusedImage)} />
         </div>
         <div className="d-none d-lg-block d-md-block col-lg-2 col-md-2">
           { images.edges.map(({ node }) => (
             node.name !== focusedImage.name &&
-            <GatsbyImage key={node.name} alt={node.name} image={node.childImageSharp.gatsbyImageData} onClick={() => setFocus(node)} />
+            <GatsbyImage key={node.name} alt={node.name} image={getImage(node)} onClick={() => setFocus(node)} />
           ))}
         </div>
         <div className="col-12 col-lg-5">
