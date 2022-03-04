@@ -5,7 +5,9 @@ import Layout from "../components/Layout";
 function Music({ location }) {
     return (
       <Layout path={location.pathname}>
-        Music
+        <div>
+          Music
+        </div>
       </Layout>
     );
   }

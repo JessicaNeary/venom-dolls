@@ -19,7 +19,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           name: stripePrice.product.name,
           price: stripePrice.unit_amount,
           currency: stripePrice.currency,
-          productMetadata: { size: size }
+          product_data: { size: size }
         });
       }
     }
