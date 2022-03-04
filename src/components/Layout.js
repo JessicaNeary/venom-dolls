@@ -1,6 +1,4 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import '../styles.css';
 import Header from './Header';
 import Cart from './Cart';
 

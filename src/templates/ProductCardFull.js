@@ -9,19 +9,22 @@ import Layout from "../components/Layout"
 
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const [ focusedImage, setFocus ] = useState(images.edges[0].node);
-    const [ size, setSize ] = useState("SIZING");
+    const [ size, setSize ] = useState(null);
+    const needsSize = stripePrice.product.name !== "Face Mask";
     
-    const { addItem } = useShoppingCart();
+    const { addItem, handleCartClick } = useShoppingCart();
     const handleBuy = () => {
-      if ( size !== "SIZING" ) {
+      if ( !needsSize || size ) {
         addItem({          
           sku: stripePrice.id,
           name: stripePrice.product.name,
           price: stripePrice.unit_amount,
+          image: images.edges[0].node,
           currency: stripePrice.currency,
           product_data: { size: size }
         });
-      }
+      };
+      handleCartClick();
     }
 
     return (
@@ -40,17 +43,19 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           <h2 className="text-uppercase mt-2">{stripePrice.product.name}</h2>
           <h4 className="mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
-          <Dropdown>
-            <Dropdown.Toggle className="w-100 mt-4 btn-light border-dark rounded-0">{size}</Dropdown.Toggle>
-            <Dropdown.Menu className="w-100">
-              <Dropdown.Item onClick={() => setSize("XS")}>XS</Dropdown.Item>
-              <Dropdown.Item onClick={() => setSize("S")}>S</Dropdown.Item>
-              <Dropdown.Item onClick={() => setSize("M")}>M</Dropdown.Item>
-              <Dropdown.Item onClick={() => setSize("L")}>L</Dropdown.Item>
-              <Dropdown.Item onClick={() => setSize("XL")}>XL</Dropdown.Item>
-              <Dropdown.Item onClick={() => setSize("XXL")}>XXL</Dropdown.Item>
-              </Dropdown.Menu>
-          </Dropdown>
+          { needsSize && 
+            <Dropdown>
+              <Dropdown.Toggle className="w-100 mt-4 btn-light border-dark rounded-0">{size || "SIZING"}</Dropdown.Toggle>
+              <Dropdown.Menu className="w-100">
+                <Dropdown.Item onClick={() => setSize("XS")}>XS</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSize("S")}>S</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSize("M")}>M</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSize("L")}>L</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSize("XL")}>XL</Dropdown.Item>
+                <Dropdown.Item onClick={() => setSize("XXL")}>XXL</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+          }
           <button className="w-100 mt-2 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
         </div>
     </div>
@@ -70,7 +75,10 @@ query($productId: String, $imageLocation: String) {
         name
         }
     }
-    images: allFile(filter: {relativeDirectory: {eq: $imageLocation}}) {
+    images: allFile(
+      filter: {relativeDirectory: {eq: $imageLocation}}
+      sort: {fields: relativePath}
+    ) {
         edges {
           node {
             relativePath
