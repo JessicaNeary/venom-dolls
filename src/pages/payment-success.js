@@ -7,7 +7,7 @@ function PaymentSuccess({ location }) {
   const { clearCart } = useShoppingCart();
   useEffect(() => {
       clearCart();
-  }, [clearCart]);
+  }, []);
   return (
     <Layout path={location.pathname}>
       Payment successful!
