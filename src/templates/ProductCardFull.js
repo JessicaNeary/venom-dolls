@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
@@ -8,23 +8,33 @@ import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
 
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
+    const sizeRef = useRef(null);
     const [ focusedImage, setFocus ] = useState(images.edges[0].node);
+    const [ highlightSizing, setHighlight ] = useState(false);
     const [ size, setSize ] = useState(null);
     const needsSize = stripePrice.product.name !== "Face Mask";
     
-    const { addItem, handleCartClick } = useShoppingCart();
+    const { addItem, handleCartClick, removeItem,cartDetails } = useShoppingCart();
     const handleBuy = () => {
       if ( !needsSize || size ) {
+        let sizes = [ size ];
+        if (cartDetails.hasOwnProperty(stripePrice.id)) {
+          sizes.push(...cartDetails[stripePrice.id].product_data.sizes);
+          console.log(cartDetails[stripePrice.id]);
+          removeItem(stripePrice.id)
+        }
         addItem({          
-          sku: stripePrice.id,
+          id: stripePrice.id,
           name: stripePrice.product.name,
           price: stripePrice.unit_amount,
           image: images.edges[0].node,
           currency: stripePrice.currency,
-          product_data: { size: size }
-        });
-      };
-      handleCartClick();
+        }, { count: sizes.length, product_metadata: { sizes: sizes }} );
+        handleCartClick();
+      } else if ( needsSize && !size ) {
+        sizeRef.current.focus();
+        setHighlight(true);
+      }
     }
 
     return (
@@ -45,7 +55,12 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
           { needsSize && 
             <Dropdown>
-              <Dropdown.Toggle className="w-100 mt-4 btn-light border-dark rounded-0">{size || "SIZING"}</Dropdown.Toggle>
+              <Dropdown.Toggle 
+              ref={sizeRef}
+              onFocus={() => setHighlight(false)} 
+              className={`w-100 mt-4 btn-light rounded-0 border-${highlightSizing ? 'danger' : 'dark'}`}>
+                {size || "SIZING"}
+              </Dropdown.Toggle>
               <Dropdown.Menu className="w-100">
                 <Dropdown.Item onClick={() => setSize("XS")}>XS</Dropdown.Item>
                 <Dropdown.Item onClick={() => setSize("S")}>S</Dropdown.Item>

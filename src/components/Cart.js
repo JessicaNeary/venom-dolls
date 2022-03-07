@@ -50,7 +50,7 @@ const Cart = () => {
                         <div className="col-4"><GatsbyImage className="mr-3" alt={item.name} image={getImage(item.image)} /></div>
                         <div className="col-8 mt-3 mx-4 px-3">
                             <h6>{item.name}</h6>
-                            <p className="fst-italic">{item.product_data.size && "Size " + item.product_data.size}</p>
+                            <p className="fst-italic">{item.product_data.sizes && "Size: " + item.product_data.sizes.join(", ")}</p>
                         </div>
                     </div>
                     <div className="col-2 mt-2">
