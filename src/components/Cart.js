@@ -2,11 +2,13 @@ import React, {useEffect, useState} from "react";
 import Modal from "react-bootstrap/Modal";
 import { GatsbyImage, getImage  } from "gatsby-plugin-image";
 import { useShoppingCart } from "use-shopping-cart";
+import axios from "axios";
 
+import getShipping from "../utils/getShipping";
 import formatPrice from "../utils/formatPrice";
 
 const Cart = () => {
-    const { shouldDisplayCart, totalPrice, currency, removeItem, setItemQuantity, handleCartClick, cartDetails, redirectToCheckout, cartCount } = useShoppingCart();
+    const { shouldDisplayCart, totalPrice, currency, removeItem, setItemQuantity, handleCartClick, cartDetails, cartCount, redirectToCheckout } = useShoppingCart();
     const [status, setStatus] = useState('idle');
     // closes cart on page reload
     useEffect(() => {
@@ -15,21 +17,26 @@ const Cart = () => {
         }
     }, [])
     const adjustQuantity = (id) => (e) => {
-        console.log(e.target.value)
         setItemQuantity(id, parseInt(e.target.value))
     };
+    const items = Object.values(cartDetails);
+    console.log(getShipping(items));
     async function handleCheckout(event) {
         event.preventDefault()
     
         if (cartCount > 0) {
           setStatus('loading')
-          const error = await redirectToCheckout({...cartDetails})
-          if (error) setStatus('redirect-error')
+          const shippingRate = getShipping(items);
+          const session = await axios.post('/api/create-session', { items: items, shippingRate: shippingRate })
+          const error = await redirectToCheckout({ sessionId: session.data.id });
+          if (error) {
+              setStatus('redirect-error')
+                console.log(error)
+            }
         } else {
           setStatus('missing-items')
         }
       }
-    const items = Object.values(cartDetails);
     return (
     <Modal size="xl" show={shouldDisplayCart} onHide={handleCartClick}>
     <Modal.Header closeButton />

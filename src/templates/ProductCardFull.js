@@ -19,8 +19,8 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
       if ( !needsSize || size ) {
         let sizes = [ size ];
         if (cartDetails.hasOwnProperty(stripePrice.id)) {
+          // adds additional size to existing cart product
           sizes.push(...cartDetails[stripePrice.id].product_data.sizes);
-          console.log(cartDetails[stripePrice.id]);
           removeItem(stripePrice.id)
         }
         addItem({          
