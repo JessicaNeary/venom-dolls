@@ -6,9 +6,7 @@ const getShipping = ( lineItems ) => {
     // contains more than one tee shirt
     let teeCount = 0;
     lineItems.forEach(item => {
-        console.log(item)
         if (item.name.match(/(T-Shirt)/)) {
-            console.log(item.quantity)
             teeCount = teeCount + item.quantity
         }
     });

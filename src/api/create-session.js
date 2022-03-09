@@ -22,13 +22,14 @@ export default async function handler(req, res) {
     try {
       const lineItems = []
       const sizeInfo = []
-        for (const id in req.body.items) {
-          const item = req.body.items[id];
-          lineItems.push({ price: item.id, quantity: item.quantity })
-          if (item.product_data.sizes) {
-            sizeInfo.push(item.name + " - " + item.product_data.sizes.join(', '))
-          }
+      req.body.items.forEach((item) => {
+        const index = lineItems.findIndex(({ id }) => item.id)
+        if (index !== -1) {
+            lineItems[index].quantity += item.quantity;
         }
+        else lineItems.push({ price: item.id, quantity: item.quantity });
+        sizeInfo.push(`${item.quantity}x${item.size}${item.name}`)
+      })
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         billing_address_collection: 'auto',
@@ -40,14 +41,12 @@ export default async function handler(req, res) {
         ],
         mode: 'payment',
         success_url: `http://localhost:8000/payment-success/`,
-        cancel_url: `http://localhost:8000/`,
+        cancel_url: `http://localhost:8000/merch`,
         line_items: lineItems,
         payment_intent_data: {
           description: sizeInfo.join('. ')
         }
       });
-
-      stripe.redirectToCheckout({ sessionId: session.id })
       res.status(200).json({ id: session.id })
     } catch (error) {
       res.status(500).send(error.message);

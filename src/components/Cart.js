@@ -3,6 +3,8 @@ import Modal from "react-bootstrap/Modal";
 import { GatsbyImage, getImage  } from "gatsby-plugin-image";
 import { useSelector, useDispatch } from 'react-redux';
 
+import getStripe from "../utils/stripejs";
+
 import { removeFromCart, adjustItemQuantity, checkoutCart, toggleCartOpen } from "../actions";
 
 import getShipping from "../utils/getShipping";
@@ -11,6 +13,7 @@ import formatPrice from "../utils/formatPrice";
 const Cart = () => {
     const [status, setStatus] = useState('idle');
     const items = useSelector(store => store.cart)
+    const sessionId = useSelector(store => store.sessionId)
     const cartOpen = useSelector(store => store.cartOpen)
     const dispatch = useDispatch();
 
@@ -26,13 +29,22 @@ const Cart = () => {
         }
     }, [])
 
+    useEffect(()=> {
+        if (sessionId) redirectToCheckout();
+    }, [sessionId]);
+
     const toggleCart = () => dispatch(toggleCartOpen());
 
     const adjustQuantity = (item) => (e) => {
         dispatch(adjustItemQuantity(item, parseInt(e.target.value)))
     };
 
-    console.log(getShipping(items));
+    const redirectToCheckout = async (id) => {
+        const stripe = await getStripe()
+        stripe.redirectToCheckout({ sessionId: sessionId });
+    }
+
+    // dispatches create session call
     async function handleCheckout(event) {
         event.preventDefault()
     
@@ -73,7 +85,7 @@ const Cart = () => {
                     </div>
                     <div className="col-1 mt-2">{formatPrice(item.price)}</div>
                     <div className="col-1 mt-2 fw-bold">{formatPrice(item.value)}</div>
-                    <div className="col-1 mt-2 text-end" onClick={() => dispatch(removeFromCart(item))}>X</div>
+                    <div className="col-1 mt-2 text-end" role="button" onClick={() => dispatch(removeFromCart(item))}>X</div>
                 </div>)
             })}
             </div>

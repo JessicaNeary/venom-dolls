@@ -24,7 +24,6 @@ exports.createPages = async function ({ graphql, actions, reporters }) {
         return
     }
 
-        console.log('got data', data)
         productTemplate = path.resolve(`./src/templates/ProductCardFull.js`)
         data.allStripePrice.edges.forEach(({ node }) => {
           createPage({

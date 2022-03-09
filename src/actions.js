@@ -66,6 +66,7 @@ export const checkoutError = error => {
     }
 };
 
+
 export const checkoutCart = (items, shippingRate) => {
     return async (dispatch) => {
         axios.post('/api/create-session', { items: items, shippingRate: shippingRate })

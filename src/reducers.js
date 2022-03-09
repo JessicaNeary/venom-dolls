@@ -1,9 +1,10 @@
-import { CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART } from "./actions";
+import { CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART, CHECKOUT_SUCCESS } from "./actions";
 
 const INITIAL_STATE = {
     cart: [],
     cartError: null,
-    cartOpen: false
+    cartOpen: false,
+    sessionId: null,
 };
 /*
 item = { id: {
@@ -18,7 +19,6 @@ item = { id: {
 export const reducer = (state = INITIAL_STATE, actions ) => {
     switch(actions.type) {
         case(TOGGLE_CART_OPEN): {
-            console.log('here')
             const newCartState = !state.cartOpen
             return {
                 ...state,
@@ -43,7 +43,6 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             };
         }
         case(ADJUST_ITEM_QUANTITY): {
-            console.log(actions)
             const updatedCart = state.cart;
             const itemId = updatedCart.findIndex(item => {
                 return (
@@ -51,7 +50,6 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
                     item.size === actions.payload.item.size
                 );
             });
-            console.log(itemId, actions.payload.item.id, actions.payload.item.size)
             updatedCart[itemId].quantity = actions.payload.quantity
             return {
                 ...state,
@@ -75,6 +73,12 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             return {
                 ...state,
                 cart: []
+            }
+        }
+        case(CHECKOUT_SUCCESS): {
+            return {
+                ...state,
+                sessionId: actions.payload.sessionId
             }
         }
         case(CHECKOUT_ERROR): {

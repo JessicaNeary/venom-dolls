@@ -36,7 +36,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
             </ul>
 
             <div className="col d-flex justify-content-end align-items-center mb-md-0 mr-2">
-                <div onClick={handleCartClick}>Cart</div>
+                <div role="button" onClick={handleCartClick}>Cart</div>
             </div>
         </header>
         </div>
