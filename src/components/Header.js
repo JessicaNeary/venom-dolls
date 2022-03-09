@@ -4,9 +4,6 @@ import { Link } from "gatsby";
 import Logo from "../images/logo-white.svg";
 
 function Header({ path, pageRef, clearHeader, handleCartClick }) {
-    const toggleCart = () => {
-        handleCartClick();
-    }
     const [ bgColor, setBg ] = useState(clearHeader ? 'bg-transparent' : 'bg-dark')
     useEffect(() => {
         const checkBackground = () => {
@@ -39,7 +36,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
             </ul>
 
             <div className="col d-flex justify-content-end align-items-center mb-md-0 mr-2">
-                <div onClick={toggleCart}>Cart</div>
+                <div onClick={handleCartClick}>Cart</div>
             </div>
         </header>
         </div>

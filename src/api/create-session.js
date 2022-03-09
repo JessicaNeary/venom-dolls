@@ -46,6 +46,8 @@ export default async function handler(req, res) {
           description: sizeInfo.join('. ')
         }
       });
+
+      stripe.redirectToCheckout({ sessionId: session.id })
       res.status(200).json({ id: session.id })
     } catch (error) {
       res.status(500).send(error.message);

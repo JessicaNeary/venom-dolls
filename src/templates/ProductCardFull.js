@@ -1,36 +1,34 @@
 import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
+import { useDispatch } from "react-redux";
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
-import { useShoppingCart } from "use-shopping-cart";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
+
+import { toggleCartOpen, addToCart } from "../actions";
 
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const sizeRef = useRef(null);
     const [ focusedImage, setFocus ] = useState(images.edges[0].node);
     const [ highlightSizing, setHighlight ] = useState(false);
     const [ size, setSize ] = useState(null);
+    const dispatch = useDispatch();
+
     const needsSize = stripePrice.product.name !== "Face Mask";
     
-    const { addItem, handleCartClick, removeItem,cartDetails } = useShoppingCart();
     const handleBuy = () => {
       if ( !needsSize || size ) {
-        let sizes = [ size ];
-        if (cartDetails.hasOwnProperty(stripePrice.id)) {
-          // adds additional size to existing cart product
-          sizes.push(...cartDetails[stripePrice.id].product_data.sizes);
-          removeItem(stripePrice.id)
-        }
-        addItem({          
+        dispatch(addToCart({          
           id: stripePrice.id,
           name: stripePrice.product.name,
           price: stripePrice.unit_amount,
           image: images.edges[0].node,
           currency: stripePrice.currency,
-        }, { count: sizes.length, product_metadata: { sizes: sizes }} );
-        handleCartClick();
+          size: size
+        }))
+        dispatch(toggleCartOpen());
       } else if ( needsSize && !size ) {
         sizeRef.current.focus();
         setHighlight(true);

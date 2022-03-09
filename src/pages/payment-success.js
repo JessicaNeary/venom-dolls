@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { useShoppingCart } from "use-shopping-cart"
+import { useDispatch } from 'react-redux';
+
+import { clearCart } from "../actions";
 
 import Layout from '../components/Layout';
 
 function PaymentSuccess({ location }) {
-  const { clearCart } = useShoppingCart();
+  const dispatch = useDispatch();
   useEffect(() => {
-      clearCart();
+      dispatch(clearCart());
   }, []);
   return (
     <Layout path={location.pathname}>

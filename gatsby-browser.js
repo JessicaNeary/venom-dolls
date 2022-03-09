@@ -1,22 +1,17 @@
 import React from "react";
-import { CartProvider } from "use-shopping-cart"
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware } from "redux";
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './src/styles.css';
 
+import { reducer } from "./src/reducers"
+
 const wrapPageElement = ({ element }) => {
-    return (
-    <CartProvider
-        mode="payment"
-        cartMode="client-only"
-        stripe={process.env.STRIPE_PUBLISHABLE_KEY}
-        successUrl={`${window.location.origin}/payment-success/`}
-        cancelUrl={`${window.location.origin}/`}
-        billingAddressCollection={true}
-        currency="NZD"
-    >
-        {element}
-    </CartProvider>
-)}
+    const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+    return <Provider store={store}>{element}</Provider>
+}
 
 export { wrapPageElement }
