@@ -22,15 +22,14 @@ const Cart = () => {
         totalPrice += (item.quantity * item.price);
     })
 
-    // closes cart on page reload
-    useEffect(() => {
-        return () => {
-            toggleCart();
+    useEffect( () => {
+        if (sessionId) {
+            const redirect = async () => {
+                const stripe = await getStripe()
+                stripe.redirectToCheckout({ sessionId: sessionId });
+            };
+            redirect();
         }
-    }, [])
-
-    useEffect(()=> {
-        if (sessionId) redirectToCheckout();
     }, [sessionId]);
 
     const toggleCart = () => dispatch(toggleCartOpen());
@@ -38,11 +37,6 @@ const Cart = () => {
     const adjustQuantity = (item) => (e) => {
         dispatch(adjustItemQuantity(item, parseInt(e.target.value)))
     };
-
-    const redirectToCheckout = async (id) => {
-        const stripe = await getStripe()
-        stripe.redirectToCheckout({ sessionId: sessionId });
-    }
 
     // dispatches create session call
     async function handleCheckout(event) {
@@ -85,7 +79,9 @@ const Cart = () => {
                     </div>
                     <div className="col-1 mt-2">{formatPrice(item.price)}</div>
                     <div className="col-1 mt-2 fw-bold">{formatPrice(item.value)}</div>
-                    <div className="col-1 mt-2 text-end" role="button" onClick={() => dispatch(removeFromCart(item))}>X</div>
+                    <div className="col-1 mt-2">
+                        <button className="text-end btn btn-outline-dark border-0" onClick={() => dispatch(removeFromCart(item))}>X</button>
+                    </div>
                 </div>)
             })}
             </div>

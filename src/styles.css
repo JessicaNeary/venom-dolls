@@ -35,3 +35,8 @@
     border-bottom: 2px solid #5e5e5e;
     border-top: 2px solid #5e5e5e;
 }
+
+.no-focus:focus {
+    outline: none;
+    box-shadow: none;
+}

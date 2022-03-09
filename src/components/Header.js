@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 
+import ShoppingCart from "../images/shopping-cart.svg";
 import Logo from "../images/logo-white.svg";
 
 function Header({ path, pageRef, clearHeader, handleCartClick }) {
@@ -36,7 +37,9 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
             </ul>
 
             <div className="col d-flex justify-content-end align-items-center mb-md-0 mr-2">
-                <div role="button" onClick={handleCartClick}>Cart</div>
+                <button className="btn btn-outline-dark no-focus border-0" onClick={handleCartClick}>
+                    <ShoppingCart height="35" aria-label="shopping-cart" />
+                </button>
             </div>
         </header>
         </div>

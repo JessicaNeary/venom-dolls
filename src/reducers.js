@@ -70,10 +70,7 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             };
         }
         case(CLEAR_CART): {
-            return {
-                ...state,
-                cart: []
-            }
+            return INITIAL_STATE;
         }
         case(CHECKOUT_SUCCESS): {
             return {

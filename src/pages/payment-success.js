@@ -9,6 +9,7 @@ function PaymentSuccess({ location }) {
   const dispatch = useDispatch();
   useEffect(() => {
       dispatch(clearCart());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Layout path={location.pathname}>
