@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-venomdolls-dev-123258-authRole",
+      "UnauthRoleArn": "arn:aws:iam::548808085717:role/amplify-venomdolls-dev-123258-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::548808085717:role/amplify-venomdolls-dev-123258-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-venomdolls-dev-123258-deployment",
+      "UnauthRoleName": "amplify-venomdolls-dev-123258-unauthRole",
+      "StackName": "amplify-venomdolls-dev-123258",
+      "StackId": "arn:aws:cloudformation:us-east-1:548808085717:stack/amplify-venomdolls-dev-123258/4544f000-a001-11ec-9a5f-0a5b9cdecc07",
+      "AmplifyAppId": "d2wd7n5p5fvuz"
+    },
+    "categories": {
+      "function": {
+        "stripeCheckout": {
+          "deploymentBucketName": "amplify-venomdolls-dev-123258-deployment",
+          "s3Key": "amplify-builds/stripeCheckout-5076432b43793658484b-build.zip"
+        }
+      }
+    }
+  }
+}

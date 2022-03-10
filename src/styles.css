@@ -12,6 +12,11 @@
     text-transform: uppercase;
 }
 
+.page-body {
+    position: relative;
+    top: 76px;
+}
+
 .shopNowButton {
     position: absolute;
     top: 50%;

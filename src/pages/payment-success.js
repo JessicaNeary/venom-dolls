@@ -13,7 +13,11 @@ function PaymentSuccess({ location }) {
   }, []);
   return (
     <Layout path={location.pathname}>
-      Payment successful!
+      <div className="text-center pt-4">
+        <h4 className="pt-4 mt-4">
+          Payment successful!
+        </h4>
+      </div>
     </Layout>
   );
 }

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { API } from 'aws-amplify';
 
 export const TOGGLE_CART_OPEN = "TOGGLE_CART_OPEN";
 
@@ -68,13 +68,19 @@ export const checkoutError = error => {
 
 
 export const checkoutCart = (items, shippingRate) => {
-    return async (dispatch) => {
-        axios.post('/api/create-session', { items: items, shippingRate: shippingRate })
+    return (dispatch) => {
+        const apiName = 'stripeAPI'
+        const apiEndpoint = '/checkout'
+        const body = {
+            items,
+            shippingRate
+        };
+        API.post(apiName, apiEndpoint, { body })
             .then(response => {
-                dispatch(checkoutSuccess(response.data.id))
+                dispatch(checkoutSuccess(response.id))
             })
             .catch(err => {
-                dispatch(checkoutError(err))
+                dispatch(checkoutError(err.message))
             });
     }
 };

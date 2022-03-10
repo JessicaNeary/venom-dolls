@@ -23,7 +23,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
         path === page ? 'text-secondary' : 'text-white'
     );
     return (
-        <div className={`container-fluid header-container z-index-2 w-100 ${clearHeader ? 'position-fixed' : 'position-absolute'} ${bgColor}`}>
+        <div className={`container-fluid header-container z-index-2 w-100 position-fixed ${bgColor}`}>
         <header className="row py-2">
             <a href="/" className="d-flex align-items-center col-2 mb-md-0 text-dark text-decoration-none">
                 <Logo className="bi me-2" fill="#fffff" width="90" height="60" aria-label="venom-dolls-logo" />

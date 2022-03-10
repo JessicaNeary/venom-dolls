@@ -19,7 +19,9 @@ const Layout = ({ children, path, pageRef, clearHeader = false }) => {
       handleCartClick={() => dispatch(toggleCartOpen())} 
     />
     <Cart />
+    <div className={!clearHeader ? "page-body" : undefined}>
     { children }
+    </div>
   </div>
 )};
 
