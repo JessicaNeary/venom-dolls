@@ -72,6 +72,9 @@ app.post('/checkout', async function(req, res) {
         success_url: `http://localhost:8000/payment-success/`,
         cancel_url: `http://localhost:8000/merch`,
         line_items: lineItems,
+        metadata: {
+          products_purchased: sizeInfo.join('. ')
+        },
         payment_intent_data: {
           description: sizeInfo.join('. ')
         }

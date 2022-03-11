@@ -16,6 +16,14 @@
         "stripeCheckout": {
           "deploymentBucketName": "amplify-venomdolls-dev-123258-deployment",
           "s3Key": "amplify-builds/stripeCheckout-5076432b43793658484b-build.zip"
+        },
+        "stripeHook": {
+          "deploymentBucketName": "amplify-venomdolls-dev-123258-deployment",
+          "s3Key": "amplify-builds/stripeHook-7343344939576c735830-build.zip"
+        },
+        "sendEmail": {
+          "deploymentBucketName": "amplify-venomdolls-dev-123258-deployment",
+          "s3Key": "amplify-builds/sendEmail-6e563746734a76665941-build.zip"
         }
       }
     }

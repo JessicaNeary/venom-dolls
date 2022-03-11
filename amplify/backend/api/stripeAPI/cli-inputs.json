@@ -7,6 +7,20 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/webhook": {
+      "name": "/webhook",
+      "lambdaFunction": "stripeHook",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/sendEmail": {
+      "name": "/sendEmail",
+      "lambdaFunction": "sendEmail",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
