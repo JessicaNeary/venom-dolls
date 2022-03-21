@@ -2,7 +2,6 @@
     "Template": {
       "TemplateName": "PurchaseNotificationEmail",
       "SubjectPart": "Merch Order Recieved from {{name}}!",
-      "HtmlPart": "<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-      "TextPart": "Dear {{name}},\r\nYour favorite animal is {{favoriteanimal}}."
+      "HtmlPart": "<h1><span>New Merchandise Order</span></h1><table style='border-collapse: collapse; border:width: 100%;' border='1'><tbody><tr><td style='width: 50.1695%;'><h2><span>{{name}}</span></h2><h4 style='color: #2e6c80;'>{{customerEmail}}</h4></td><td style='width: 49.8305%;'><h2><span>{{totalPrice}}</span></h2></td></tr><tr><td style='width: 50.1695%;'><p>{{line1}}</p><p>{{line2}}</p><p>{{city}}</p><p>{{postal_code}}</p><p>{{country}}</p></td><td style='width: 49.8305%;'><h1>&nbsp;</h1></td></tr></tbody></table><p><strong><span>Order:</span></strong></p><p><span>{{products_purchased}}</span></p><table style='border-collapse: collapse; width: 100%;' border='1'><tbody><tr><td style='width: 50%;'>Subtotal:</td><td style='width: 50%;'>{{subtotal}}</td></tr><tr><td style='width: 50%;'>Tax:</td><td style='width: 50%;'>{{tax}}</td></tr><tr><td style='width: 50%;'>Shipping:</td><td style='width: 50%;'>{{shippingCost}}</td></tr><tr><td style='width: 50%;'>Total:</td><td style='width: 50%;'>{{totalPrice}}</td></tr></tbody></table><p><strong>&nbsp;</strong></p><p style='text-align: center;'><a href={{stripeUrl}}><strong>View Order On Stripe</strong></a></p><p><strong>&nbsp;</strong></p>"
     }
-  }
+}
