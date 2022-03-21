@@ -1,19 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import Layout from "../components/Layout";
 import MusicHeader from "../components/MusicHeader";
 
 function Music({ location }) {
-  const musicRef = useRef(null)
-  const handleScroll = () => {
-    window.scrollTo({
-      top: musicRef.current.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
   return (
-    <Layout path={location.pathname} pageRef={musicRef}>
+    <Layout path={location.pathname}>
       <div className="position-absolute top-0 z-index-1 w-100">
         <MusicHeader handleScroll={handleScroll}/>
         <div className="pt-4 text-white d-flex flex-column justify-content-center align-items-center bg-dark w-100" ref={musicRef}>
