@@ -35,7 +35,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
     const useMobileIcons = width < 577;
     console.log(useMobileIcons)
     return (
-        <div className={`container-fluid header-container z-index-2 w-100 position-fixed ${bgColor}`}>
+        <div className={`container-fluid header-container z-index-2 w-100 position-fixed top-0 ${bgColor}`}>
         <header className="row py-2">
             { !useMobileIcons &&
                 <a href="/" className="d-flex align-items-center col-2 mb-md-0 text-dark text-decoration-none">
@@ -51,7 +51,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
                     <li><Link to="/merch" className={`nav-link px-2 ${getLinkColor('/merch')}`}>Merch</Link></li>
                 </ul>
             :
-                <ul className="nav col-10 justify-content-around align-items-center mb-md-0">
+                <ul className="nav justify-content-around align-items-center">
                     <li>
                         <Link to="/" className="nav-link px-2" >
                             {   path === "/" ?
@@ -84,14 +84,21 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
                             }
                         </Link>
                     </li>
+                    <li>
+                        <button className={`btn btn-outline-dark no-focus border-0 ${useMobileIcons && 'p-0'}`} onClick={handleCartClick}>
+                            <ShoppingCart height="25" aria-label="shopping-cart" />
+                        </button>
+                    </li>
                 </ul>
             }
 
-            <div className={`col d-flex justify-content-end align-items-center mb-md-0 ${!useMobileIcons && 'mr-2'}`}>
-                <button className={`btn btn-outline-dark no-focus border-0 ${useMobileIcons && 'p-0'}`} onClick={handleCartClick}>
-                    <ShoppingCart height={useMobileIcons ? "25": "35"} aria-label="shopping-cart" />
-                </button>
-            </div>
+            { !useMobileIcons &&
+                <div className={`col d-flex justify-content-end align-items-center mb-md-0 ${!useMobileIcons && 'mr-2'}`}>
+                    <button className={`btn btn-outline-dark no-focus border-0 ${useMobileIcons && 'p-0'}`} onClick={handleCartClick}>
+                        <ShoppingCart height="35" aria-label="shopping-cart" />
+                    </button>
+                </div>
+            }
         </header>
         </div>
     )
