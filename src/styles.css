@@ -45,3 +45,22 @@
     outline: none;
     box-shadow: none;
 }
+
+.music-carousel .carousel-indicators {
+    display: none;
+}
+
+.youtube-embedded {
+    height: '390px';
+    width: '640px';
+}
+
+.bandcamp-embedded, .spotify-embedded {
+    height: 307px;
+    max-width: 700px;
+}
+
+.apple-embedded {
+    height: 450px;
+    max-width: 700px;
+}
