@@ -1,10 +1,14 @@
-import { CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART, CHECKOUT_SUCCESS } from "./actions";
+import { GET_EVENTS_SUCCESS, GET_EVENTS_ERROR, CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART, CHECKOUT_SUCCESS } from "./actions";
+import eventInPast from "./utils/eventInPast";
 
 const INITIAL_STATE = {
     cart: [],
     cartError: null,
     cartOpen: false,
     sessionId: null,
+    currentEvents: [],
+    pastEvents: [],
+    eventsError: null
 };
 /*
 item = { id: {
@@ -82,6 +86,21 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             return {
                 ...state,
                 cartError: actions.error
+            }
+        }        
+        case(GET_EVENTS_SUCCESS): {
+            const past = actions.payload.data.filter(event => eventInPast(event));
+            const current = actions.payload.data.filter(event => !eventInPast(event))
+            return {
+                ...state,
+                currentEvents: current,
+                pastEvents: past
+            }
+        }
+        case(GET_EVENTS_ERROR): {
+            return {
+                ...state,
+                eventsError: actions.error
             }
         }
         default: return state;

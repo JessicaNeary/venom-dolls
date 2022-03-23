@@ -8,7 +8,8 @@ function Music({ location }) {
     <Layout path={location.pathname}>
       <div className="position-absolute top-0 z-index-1 w-100">
         <MusicHeader/>
-        <div className="pt-4 text-white d-flex flex-column justify-content-center align-items-center bg-dark w-100">
+        <div className="pt-4 text-white d-flex flex-column justify-content-center align-items-center bg-dark w-100"
+        >
           <h2 className="my-4">Band Camp</h2>
           <iframe className="bandcamp-embedded mb-4 rounded w-75" title="Venom Dolls on Band Camp" src="https://bandcamp.com/EmbeddedPlayer/album=2996126774/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" seamless><a href="https://venomdolls.bandcamp.com/album/the-venom-dolls">The Venom Dolls by Venom Dolls</a></iframe>
           <h2 className="my-4">Spotify</h2>
