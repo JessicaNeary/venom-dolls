@@ -1,4 +1,4 @@
-import { GET_EVENTS_SUCCESS, GET_EVENTS_ERROR, CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART, CHECKOUT_SUCCESS } from "./actions";
+import { GET_EVENTS, GET_EVENTS_SUCCESS, GET_EVENTS_ERROR, CHECKOUT_ERROR, TOGGLE_CART_OPEN, ADD_TO_CART, REMOVE_FROM_CART, ADJUST_ITEM_QUANTITY, CLEAR_CART, CHECKOUT_SUCCESS } from "./actions";
 import eventInPast from "./utils/eventInPast";
 
 const INITIAL_STATE = {
@@ -6,8 +6,11 @@ const INITIAL_STATE = {
     cartError: null,
     cartOpen: false,
     sessionId: null,
-    currentEvents: [],
-    pastEvents: [],
+    events: {
+        past: [],
+        current: []
+    },
+    eventsLoading: false,
     eventsError: null
 };
 /*
@@ -88,19 +91,29 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
                 cartError: actions.error
             }
         }        
+        case(GET_EVENTS): {
+            return {
+                ...state,
+                eventsLoading: true
+            }
+        }
         case(GET_EVENTS_SUCCESS): {
             const past = actions.payload.data.filter(event => eventInPast(event));
             const current = actions.payload.data.filter(event => !eventInPast(event))
             return {
                 ...state,
-                currentEvents: current,
-                pastEvents: past
+                events: {
+                    current,
+                    past
+                },
+                eventsLoading: false
             }
         }
         case(GET_EVENTS_ERROR): {
             return {
                 ...state,
-                eventsError: actions.error
+                eventsError: actions.error,
+                eventsLoading: false
             }
         }
         default: return state;

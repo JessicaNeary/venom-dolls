@@ -8,9 +8,11 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const ADJUST_ITEM_QUANTITY = "ADJUST_ITEM_QUANTITY";
 export const CLEAR_CART = "CLEAR_CART";
 
+export const CHECKOUT_CART = "CHECKOUT_CART";
 export const CHECKOUT_SUCCESS = "CHECKOUT_SUCCESS";
 export const CHECKOUT_ERROR = "CHECKOUT_ERROR";
 
+export const GET_EVENTS = "GET_EVENTS";
 export const GET_EVENTS_SUCCESS = "GET_EVENTS_SUCCESS";
 export const GET_EVENTS_ERROR = "GET_EVENTS_ERROR";
 
@@ -86,9 +88,11 @@ export const getEventsError = error => {
     }
 }
 
-
 export const checkoutCart = (items, shippingRate) => {
     return (dispatch) => {
+        dispatch({
+            type: CHECKOUT_CART
+        })
         const apiName = 'stripeAPI'
         const apiEndpoint = '/checkout'
         const body = {
@@ -107,9 +111,12 @@ export const checkoutCart = (items, shippingRate) => {
 
 export const getEvents = () => {
     return (dispatch) => {
+        dispatch({
+            type: GET_EVENTS
+        })
         axios({
             url:
-              `https://graph.facebook.com/v9.0/${process.env.FB_PAGE_ID}/events?access_token=${process.env.FB_PAGE_ACCESS_TOKEN}`,
+              `https://graph.facebook.com/v9.0/${process.env.FB_PAGE_ID}/events?fields=cover,name,description,ticket_uri,end_time,start_time,place&access_token=${process.env.FB_PAGE_ACCESS_TOKEN}`,
             method: "get",
          }).then(response => {
                 dispatch(getEventsSuccess(response.data.data))
