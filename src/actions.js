@@ -106,14 +106,12 @@ export const checkoutCart = (items, shippingRate) => {
 };
 
 export const getEvents = () => {
-    console.log('getting events')
     return (dispatch) => {
         axios({
             url:
               `https://graph.facebook.com/v9.0/${process.env.FB_PAGE_ID}/events?access_token=${process.env.FB_PAGE_ACCESS_TOKEN}`,
             method: "get",
          }).then(response => {
-                console.log('then')
                 dispatch(getEventsSuccess(response.data.data))
             })
             .catch(err => {
