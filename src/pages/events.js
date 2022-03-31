@@ -52,12 +52,11 @@ function Events({ location }) {
             )
           })()}
         </div>
-        Events
       </Layout>
     );
   }
 
-  const EventItem = ({ event }, isPast) => (
+  const EventItem = ({ event, isPast = false }) => (
     <Card className="mb-4 p-0 text-dark col-10 col-md-7" key={event.id}>
       <Card.Img variant="top" src={event.cover.source} alt={event.name} />
       <Card.Body>
@@ -71,7 +70,7 @@ function Events({ location }) {
           }
         </Card.Subtitle>
         <div className="text-center mt-4">
-        <a target="_black" rel="noreferrer" className={`my-2 btn btn-lg btn-outline-${!isPast ? 'primary' : 'secondary disabled'}`} href={`https://www.facebook.com/events/${event.id}`}>Buy Tickets</a>
+        <a target="_black" rel="noreferrer" className={`my-2 btn btn-lg btn-outline-${isPast ? 'secondary disabled' : 'primary'}`} href={`https://www.facebook.com/events/${event.id}`}>Buy Tickets</a>
         </div>
       </Card.Body>
     </Card>
