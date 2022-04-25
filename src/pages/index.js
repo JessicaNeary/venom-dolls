@@ -7,7 +7,7 @@ import Facebook from '../images/socials/icons8-facebook.svg';
 import Instagram from '../images/socials/icons8-instagram.svg';
 import Spotify from '../images/socials/icons8-spotify.svg';
 import Bandcamp from '../images/socials/icons8-bandcamp.svg';
-import Tiktok from '../images/socials/icons8-tiktok.svg';
+import Soundcloud from '../images/socials/icons8-soundcloud.svg';
 import Youtube from '../images/socials/icons8-youtube.svg';
 import Apple from '../images/socials/icons8-apple-logo.svg';
 
@@ -29,13 +29,13 @@ function Home({ location }) {
         </div>
         <div className="row justify-content-center pb-4 mb-4">
           <div className="my-4 d-flex fd-row col-12 col-sm-10 col-md-8 col-lg-6 justify-content-around">
-            <Facebook className="socials-icon" alt="Facebook Icon by Icons8" />
-            <Instagram className="socials-icon" alt="Instagram Icon by Icons8" />
-            <Bandcamp className="socials-icon" alt="Bandcamp Icon by Icons8" />
-            <Spotify className="socials-icon" alt="Spotify Icon by Icons8" />
-            <Youtube className="socials-icon" alt="Youtube Icon by Icons8" />
-            <Apple className="socials-icon" alt="Apple Icon by Icons8" />
-            <Tiktok className="socials-icon" alt="Tiktok Icon by Icons8" />
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/thevenomdolls/"><Facebook className="socials-icon" alt="Facebook Icon by Icons8" /></a>
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/venomdollsnz/"><Instagram className="socials-icon" alt="Instagram Icon by Icons8" /></a>
+            <a target="_blank" rel="noreferrer" href="https://venomdolls.bandcamp.com/"><Bandcamp className="socials-icon" alt="Bandcamp Icon by Icons8" /></a>            
+            <a target="_blank" rel="noreferrer" href="https://soundcloud.com/venomdolls"><Soundcloud className="socials-icon" alt="Soundcloud Icon by Icons8" /></a>
+            <a target="_blank" rel="noreferrer" href="https://open.spotify.com/artist/5Z0X2J07rdkyv59qNlxWeZ?si=NB5a31rYRSq-UeIyihhrDA&dl_branch=1"><Spotify className="socials-icon" alt="Spotify Icon by Icons8" /></a>
+            <a target="_blank" rel="noreferrer" href="https://youtube.com/channel/UCNs7xLhTy8FVcNCx-O-vOsg"><Youtube className="socials-icon" alt="Youtube Icon by Icons8" /></a>
+            <a target="_blank" rel="noreferrer" href="https://music.apple.com/us/artist/venom-dolls/1578434812"><Apple className="socials-icon" alt="Apple Music Icon by Icons8" /></a>
           </div>
         </div>
         <div className="row justify-content-around my-4 py-4">
@@ -65,13 +65,5 @@ function Home({ location }) {
     </Layout>
   );
 }
-
-const MemberItem = ({ name, bio, image }) => (
-  <div className="col-3">
-    <StaticImage placeholder="blurred" src={image} className="d-block w-100" alt={`${name} Profile Picture`} />
-    <h5 className="fw-bold">{name}</h5>
-    <p>{bio}</p>
-  </div>
-);
 
 export default Home;
