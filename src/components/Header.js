@@ -14,13 +14,13 @@ import HomeActive from "../images/header/home-active.svg";
 import MerchActive from "../images/header/merch-active.svg";
 
 function Header({ path, pageRef, clearHeader, handleCartClick }) {
-    const [ bgColor, setBg ] = useState(clearHeader ? 'bg-transparent' : 'bg-dark')
+    const [ bgColor, setBg ] = useState(clearHeader ? 'bg-transparent' : 'bg-black')
     useEffect(() => {
         const checkBackground = () => {
             if (bgColor === 'bg-transparent' && pageRef.current && window.pageYOffset >= pageRef.current.offsetTop) {
-                setBg('bg-dark');
+                setBg('bg-black');
             }        
-            else if (bgColor === 'bg-dark' && pageRef.current && window.pageYOffset < pageRef.current.offsetTop) {
+            else if (bgColor === 'bg-black' && pageRef.current && window.pageYOffset < pageRef.current.offsetTop) {
                 setBg('bg-transparent');
             }
         };

@@ -42,7 +42,7 @@ function MerchHeader() {
         <div className="position-relative">
             <Carousel className="music-carousel" interval={150000} onSlide={handleNext} onSelect={handleNext}>
                 <Carousel.Item>
-                    <div className="d-flex justify-content-center bg-dark w-100">
+                    <div className="d-flex justify-content-center bg-black w-100">
                     <Youtube
                         videoId="JPD9NM2lAN4"
                         title="Venom Dolls - Fucked Up (The Live Rooms)"
@@ -53,7 +53,7 @@ function MerchHeader() {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <div className="d-flex justify-content-center bg-dark w-100">
+                    <div className="d-flex justify-content-center bg-black w-100">
                     <Youtube
                         videoId="KuQdEn_mZeA"
                         title="Venom Dolls - Don't Wanna Be (Official Music Video)"
@@ -63,7 +63,7 @@ function MerchHeader() {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <div className="d-flex justify-content-center bg-dark w-100">
+                    <div className="d-flex justify-content-center bg-black w-100">
                     <Youtube
                         videoId="7QBpZnauk8I"
                         title="Venom Dolls - ALAB live @ Whammy"

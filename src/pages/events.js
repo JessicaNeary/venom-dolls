@@ -19,7 +19,7 @@ function Events({ location }) {
 
     return (
       <Layout path={location.pathname}>
-        <div className="pt-4 text-light d-flex flex-column justify-content-center align-items-center bg-dark w-100">
+        <div className="pt-4 text-light d-flex flex-column justify-content-center align-items-center bg-black w-100">
           <h2 className="pt-4 pb-2 my-4">UPCOMING EVENTS</h2>
           {(() => {
             if (events.current[0]) {

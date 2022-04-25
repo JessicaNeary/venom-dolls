@@ -15,9 +15,14 @@
 .page-body {
     position: relative;
     top: 59px;
+    color: #f4f4f4;
     @media (min-width: 576px) { 
         top: 76px;
     }
+}
+
+.bg-black {
+    background-color: #121212 !important;
 }
 
 .shopNowButton {
@@ -71,4 +76,18 @@
 .event-description {
     max-height: 300px;
     overflow-y: auto;
+}
+
+.text-light {
+    color: #d3d3d3 !important;
+}
+
+.socials-icon {
+    opacity: 0.9;
+}
+
+@media (max-width: 575px) {
+    .socials-icon {
+        width: 25px !important;
+    }
 }
