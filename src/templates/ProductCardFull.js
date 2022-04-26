@@ -69,7 +69,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
                 </Dropdown.Menu>
             </Dropdown>
           }
-          <button className="w-100 mt-2 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
+          <button className="buy-btn w-100 mt-2 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
         </div>
     </div>
     </Layout>

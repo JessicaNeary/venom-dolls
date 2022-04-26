@@ -6,7 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import '@stripe/stripe-js'
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './src/styles.css';
+import './src/styles.scss';
 
 import { reducer } from "./src/reducers"
 

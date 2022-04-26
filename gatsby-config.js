@@ -7,7 +7,9 @@ module.exports = {
       title: `Venom Dolls`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: [{
+  plugins: [
+    'gatsby-plugin-sass',
+  {
     resolve: 'gatsby-plugin-google-analytics',
     options: {
       "trackingId": "\"ADD TRACKING ID\""

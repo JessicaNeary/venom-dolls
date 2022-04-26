@@ -86,7 +86,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
                     </li>
                     <li>
                         <button className={`btn btn-outline-dark no-focus border-0 ${useMobileIcons && 'p-0'}`} onClick={handleCartClick}>
-                            <ShoppingCart height="25" aria-label="shopping-cart" />
+                            <ShoppingCart className="shopping-cart" height="25" aria-label="shopping-cart" />
                         </button>
                     </li>
                 </ul>
@@ -95,7 +95,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
             { !useMobileIcons &&
                 <div className={`col d-flex justify-content-end align-items-center mb-md-0 ${!useMobileIcons && 'mr-2'}`}>
                     <button className={`btn btn-outline-dark no-focus border-0 ${useMobileIcons && 'p-0'}`} onClick={handleCartClick}>
-                        <ShoppingCart height="35" aria-label="shopping-cart" />
+                        <ShoppingCart className="shopping-cart" height="35" aria-label="shopping-cart" />
                     </button>
                 </div>
             }
