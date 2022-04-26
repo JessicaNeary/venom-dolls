@@ -70,7 +70,7 @@ function Events({ location }) {
           }
         </Card.Subtitle>
         <div className="text-center mt-4">
-        <a target="_black" rel="noreferrer" className={`my-2 btn btn-lg btn-outline-${isPast ? 'secondary disabled' : 'danger'}`} href={`https://www.facebook.com/events/${event.id}`}>Buy Tickets</a>
+        <a target="_black" rel="noreferrer" className={`my-2 btn btn-lg ${isPast ? 'btn-outline-secondary disabled' : 'btn-danger'}`} href={event.ticket_uri ? event.ticket_uri : `https://www.facebook.com/events/${event.id}`}>Buy Tickets</a>
         </div>
       </Card.Body>
     </Card>
