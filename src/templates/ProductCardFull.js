@@ -37,7 +37,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
 
     return (
     <Layout path="/merch">
-      <div className="row justify-content-center m-3 mt-4">
+      <div className="row justify-content-center m-3 mt-4 text-dark">
         <div className="col-12 col-md-10 col-lg-5 mb-4">
           <GatsbyImage alt={focusedImage.name} image={getImage(focusedImage)} />
         </div>
@@ -49,7 +49,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
         </div>
         <div className="col-12 col-lg-5">
           <h2 className="text-uppercase mt-2">{stripePrice.product.name}</h2>
-          <h4 className="mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
+          <h4 className="text-danger mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
           { needsSize && 
             <Dropdown>

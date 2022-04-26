@@ -14,7 +14,7 @@ function Merch({ location }) {
   };
   return (
     <Layout path={location.pathname} pageRef={productsRef} clearHeader>
-      <div className="position-absolute top-0 z-index-1">
+      <div className="position-absolute top-0 z-index-1 text-dark">
         <MerchHeader handleScroll={handleScroll}/>
         <div className="pt-4" ref={productsRef}>
           <Products />

@@ -93,7 +93,7 @@ const Cart = () => {
         </div>
         <div className="d-flex mt-2 justify-content-end">
             <button
-                className={`px-4 me-3 btn ${items[0] ? "btn-primary" : "btn-secondary"} rounded-0`}
+                className={`px-4 me-3 btn ${items[0] ? "btn-danger" : "btn-secondary"} rounded-0`}
                 disabled={status === 'loading' || !items[0]}
                 onClick={handleCheckout}
             >

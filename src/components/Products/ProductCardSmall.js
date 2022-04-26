@@ -12,7 +12,7 @@ const ProductCardSmall = ({ id, mainImage, product, currency, unit_amount }) => 
           }
       </Link>
           <h6 className="my-1 fw-bold">{product.name}</h6>
-          <p className="fst-italic">{formatPrice(unit_amount, currency)}</p>
+          <p className="fst-italic text-danger">{formatPrice(unit_amount, currency)}</p>
     </div>
   )
 }

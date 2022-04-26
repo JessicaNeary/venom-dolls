@@ -29,7 +29,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
         }
     }, [bgColor, clearHeader, pageRef])
     const getLinkColor = (page) => (
-        path === page ? 'text-secondary' : 'text-white'
+        path === page ? 'text-danger' : 'text-white'
     );
     const { width } = useWindowDimensions();
     const useMobileIcons = width < 577;
