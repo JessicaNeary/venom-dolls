@@ -10,17 +10,17 @@ import { removeFromCart, adjustItemQuantity, checkoutCart, toggleCartOpen } from
 import getShipping from "../utils/getShipping";
 import formatPrice from "../utils/formatPrice";
 
-const Cart = () => {
+const Cart = ({ cartOpen }) => {
     const [status, setStatus] = useState('idle');
-    const items = useSelector(store => store.cart)
     const sessionId = useSelector(store => store.sessionId)
-    const cartOpen = useSelector(store => store.cartOpen)
+    const items = useSelector(store => store.cart)
     const dispatch = useDispatch();
 
-    let totalPrice = 0;
-    items.forEach(item => {
-        totalPrice += (item.quantity * item.price);
-    })
+    const getTotal = () => {
+        return items.reduce((prevValue, item) => prevValue + item.quantity*item.price, 0)
+    }
+
+    const [totalPrice, setTotal] = useState(getTotal());
 
     useEffect( () => {
         if (sessionId) {
@@ -36,6 +36,7 @@ const Cart = () => {
 
     const adjustQuantity = (item) => (e) => {
         dispatch(adjustItemQuantity(item, parseInt(e.target.value)))
+        setTotal(getTotal())
     };
 
     // dispatches create session call
@@ -77,8 +78,8 @@ const Cart = () => {
                     <div className="col-2 mt-2">
                         <input className="w-50 text-center" type="number" min={1} defaultValue={item.quantity} onChange={adjustQuantity(item)} />
                     </div>
-                    <div className="col-1 mt-2">{formatPrice(item.price)}</div>
-                    <div className="col-1 mt-2 fw-bold">{formatPrice(item.value)}</div>
+                    <div className="col-1 mt-2">{formatPrice(item.price, "NZD")}</div>
+                    <div className="col-1 mt-2 fw-bold">{formatPrice(item.price*item.quantity, "NZD")}</div>
                     <div className="col-1 mt-2">
                         <button className="text-end btn btn-outline-dark border-0" onClick={() => dispatch(removeFromCart(item))}>X</button>
                     </div>

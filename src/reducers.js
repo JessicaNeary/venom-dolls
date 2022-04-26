@@ -67,7 +67,7 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             let updatedCart = state.cart;
             updatedCart = updatedCart.filter(item => {
                 return (
-                    item.id !== actions.payload.item.id &&
+                    item.id !== actions.payload.item.id ||
                     item.size !== actions.payload.item.size
                 );
             })
