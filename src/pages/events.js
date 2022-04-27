@@ -20,7 +20,7 @@ function Events({ location }) {
     return (
       <Layout path={location.pathname}>
         <div className="pt-4 text-light d-flex flex-column justify-content-center align-items-center bg-black w-100">
-          <h2 className="pt-4 pb-2 my-4">UPCOMING EVENTS</h2>
+          <h2 className="pt-4 pb-2 my-4 fw-bold text-danger">UPCOMING EVENTS</h2>
           {(() => {
             if (events.current[0]) {
               return (
@@ -35,7 +35,7 @@ function Events({ location }) {
               <div className="mb-4 pb-4 w-75 text-center">We currently don't have any events available to see online, but there are always plenty in the works, so follow our <a target="_blank" rel="noreferrer" href="https://www.facebook.com/thevenomdolls/">facebook page</a> to keep updated!</div>
             )
           })()}
-          <h2 className="pt-4 pb-2 my-4">PAST EVENTS</h2>
+          <h2 className="pt-4 pb-2 my-4 fw-bold text-danger">PAST EVENTS</h2>
           {(() => {
             if (events.past[0]) {
               return (

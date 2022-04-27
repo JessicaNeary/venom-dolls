@@ -7,6 +7,7 @@ import '@stripe/stripe-js'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './src/styles.scss';
+import "typeface-josefin-sans";
 
 import { reducer } from "./src/reducers"
 

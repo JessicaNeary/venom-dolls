@@ -48,7 +48,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           ))}
         </div>
         <div className="col-12 col-lg-5">
-          <h2 className="text-uppercase mt-2">{stripePrice.product.name}</h2>
+          <h2 className="text-uppercase mt-2 fw-bold">{stripePrice.product.name}</h2>
           <h4 className="text-danger mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
           { needsSize && 
