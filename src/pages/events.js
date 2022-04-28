@@ -6,6 +6,7 @@ import formatDate from "../utils/formatDate";
 import formatLocation from "../utils/formatLocation";
 import { getEvents } from "../actions";
 import Layout from "../components/Layout";
+import Loader from "../components/Loader";
 
 function Events({ location }) {
     const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function Events({ location }) {
                 </div>)
             } else if (eventsLoading) {
               return (
-                <div>Loading</div>
+                  <Loader />
               )
             } else return (
               <div className="mb-4 pb-4 w-75 text-center">We currently don't have any events available to see online, but there are always plenty in the works, so follow our <a target="_blank" rel="noreferrer" href="https://www.facebook.com/thevenomdolls/">facebook page</a> to keep updated!</div>
@@ -45,7 +46,7 @@ function Events({ location }) {
               )
             } else if (eventsLoading) {
               return (
-                <div>Loading</div>
+                <Loader />
               )
             } else return (
             <div className="mb-4">No past events found.</div>

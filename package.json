@@ -39,7 +39,8 @@
     "react-redux": "^7.2.6",
     "react-youtube": "^7.14.0",
     "redux-thunk": "^2.4.1",
-    "stripe": "^8.207.0"
+    "stripe": "^8.207.0",
+    "typeface-josefin-sans": "^1.1.13"
   },
   "browser": {
     "crypto": false
