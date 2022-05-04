@@ -37,14 +37,14 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
 
     return (
     <Layout path="/merch">
-      <div className="row justify-content-center m-3 mt-4 text-dark">
-        <div className="col-12 col-md-10 col-lg-5 mb-4">
-          <GatsbyImage alt={focusedImage.name} image={getImage(focusedImage)} />
+      <div className="row justify-content-center p-3 text-dark">
+        <div className="col-12 col-md-10 col-lg-6 mb-4">
+          <GatsbyImage alt={focusedImage.name} image={focusedImage.childImageSharp.gatsbyImageData} />
         </div>
-        <div className="d-none d-lg-block d-md-block col-lg-2 col-md-2">
+        <div className="d-none d-lg-block d-md-block col-lg-1 col-md-2">
           { images.edges.map(({ node }) => (
             node.name !== focusedImage.name &&
-            <GatsbyImage key={node.name} alt={node.name} image={getImage(node)} onClick={() => setFocus(node)} />
+            <GatsbyImage className="mb-3" key={node.name} alt={node.name} image={node.childImageSharp.gatsbyImageData} onClick={() => setFocus(node)} />
           ))}
         </div>
         <div className="col-12 col-lg-5">
