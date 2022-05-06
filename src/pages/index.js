@@ -22,7 +22,7 @@ function Home({ location }) {
   Venom Dolls are a 3 piece all-girl alt rock band formed at the end of 2020. With a freshly released EP, their fast paced, highly relatable tunes are sure to get you dancing/moshing/accidentally injuring your neighbor.</h6>
             <Link to="/music" className="listen-btn btn btn-outline-light mt-2">Listen now</Link>
           </div>
-          <StaticImage placeholder="none" src="../images/neon-dolls.jpg" className="col-4 m-auto d-none d-md-block" alt="venom dolls graffiti group shot" />
+          <StaticImage placeholder="none" src="../images/neon-dolls.jpg" className="neon-dolls col-4 m-auto d-none d-md-block" alt="venom dolls graffiti group shot" />
         </div>
         <div className="row pb-sm-4">
           <StaticImage placeholder="blurred" src="../images/venom-dolls-graf-shot-1.jpg" className="d-block w-100" alt="venom dolls graffiti group shot" />

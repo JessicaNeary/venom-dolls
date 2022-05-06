@@ -35,6 +35,25 @@ body  {
     background-color: #121212 !important;
 }
 
+.neon-dolls {
+    border-radius: 25%;
+    position: relative;
+}
+
+.neon-dolls::after {
+    box-shadow: inset 0 0 30px 1px #121212;
+    border-radius: 25%;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
 .shopNowButton {
     position: absolute;
     top: 50%;
