@@ -6,11 +6,11 @@ import Products from "../components/Products";
 function Merch({ location }) {
   const productsRef = useRef(null)
   const handleScroll = () => {
-    window.scrollTo({
-      top: productsRef.current.offsetTop,
-      left: 0,
-      behavior: "smooth",
-    });
+      window.scrollTo({
+        top: productsRef.current.offsetTop,
+        left: 0,
+        behavior: "smooth"
+      });
   };
   return (
     <Layout path={location.pathname} pageRef={productsRef} clearHeader>

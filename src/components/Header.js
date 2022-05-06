@@ -24,18 +24,19 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
                 setBg('bg-transparent');
             }
         };
-        if (clearHeader && pageRef ) {
+        if (clearHeader && pageRef) {
             window.addEventListener('scroll', checkBackground)
         }
     }, [bgColor, clearHeader, pageRef])
     const getLinkColor = (page) => (
-        path === page ? 'text-danger' : 'text-white'
+        path === page ? 'text-danger' : 'text-light'
     );
     const { width } = useWindowDimensions();
     const useMobileIcons = width < 577;
     console.log(useMobileIcons)
     return (
         <div className={`container-fluid header-container z-index-2 w-100 position-fixed top-0 ${bgColor}`}>
+            { width && 
         <header className="row py-2">
             { !useMobileIcons &&
                 <a href="/" className="d-flex align-items-center col-2 mb-md-0 text-dark text-decoration-none">
@@ -100,6 +101,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
                 </div>
             }
         </header>
+        }
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Youtube from 'react-youtube';
 
 import useWindowDimensions from '../utils/useWindowDimensions';
 
-function MerchHeader() {
+function MusicHeader() {
     const refs = [useRef[null], useRef[null], useRef[null]]
     const handleReady = (e) => {
         e.target.mute();
@@ -77,4 +77,4 @@ function MerchHeader() {
     )
 }
 
-export default MerchHeader;
+export default MusicHeader;

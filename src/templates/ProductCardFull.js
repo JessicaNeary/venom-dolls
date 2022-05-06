@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
 import { useDispatch } from "react-redux";
-import { GatsbyImage, getImage  } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
 
 import formatPrice from "../utils/formatPrice";
