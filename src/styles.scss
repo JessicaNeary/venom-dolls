@@ -125,6 +125,16 @@ body  {
     }
 }
 
+.socials-icon {
+    @media (max-width: 575px) {
+        fill: $danger;
+        opacity: 1;
+        &:hover {
+            fill: white !important;
+        }
+    }
+}
+
 .listen-btn:hover {
     background: $danger !important;
     border: 1px solid $danger;
