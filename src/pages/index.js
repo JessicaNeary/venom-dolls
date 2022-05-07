@@ -13,8 +13,8 @@ import Apple from '../images/socials/icons8-apple-logo.svg';
 
 function Home({ location }) {
   return (
-    <Layout path={location.pathname}>
-      <div className="bg-black p-4">
+    <Layout path={location.pathname} pageStyles="bg-black">
+      <div className="p-4 bg-black">
         <div className="row px-2 py-4 p-sm-4 m-md-4 w-100 align-items-center">
           <div className="col-12 col-md-6 ms-md-4 py-4 p-sm-4">
             <h1>Venom Dolls</h1>

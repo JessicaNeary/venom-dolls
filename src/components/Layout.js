@@ -6,11 +6,11 @@ import Cart from './Cart';
 
 import { toggleCartOpen } from "../actions";
 
-const Layout = ({ children, path, pageRef, clearHeader = false }) => {
+const Layout = ({ children, path, pageRef, pageStyles = "", clearHeader = false }) => {
   const cartOpen = useSelector(store => store.cartOpen)
   const dispatch = useDispatch();
   return (
-  <div>
+  <div className={`min-vh-100 ${pageStyles}`}>
     <Header 
       path={path} 
       pageRef={pageRef} 
@@ -19,7 +19,7 @@ const Layout = ({ children, path, pageRef, clearHeader = false }) => {
       handleCartClick={() => dispatch(toggleCartOpen())} 
     />
     <Cart cartOpen={cartOpen} />
-    <div className={!clearHeader ? "page-body" : undefined}>
+    <div className={!clearHeader ? "page-body" : ""}>
     { children }
     </div>
   </div>

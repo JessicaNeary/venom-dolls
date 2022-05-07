@@ -19,8 +19,8 @@ function Events({ location }) {
     }, [])
 
     return (
-      <Layout path={location.pathname}>
-        <div className="pt-4 text-light d-flex flex-column justify-content-center align-items-center bg-black w-100">
+      <Layout path={location.pathname} pageStyles="bg-black">
+        <div className="bg-black pt-4 text-light d-flex flex-column justify-content-center align-items-center w-100">
           <h2 className="pt-4 pb-2 my-4 fw-bold text-danger">UPCOMING EVENTS</h2>
           {(() => {
             if (events.current[0]) {
@@ -77,21 +77,4 @@ function Events({ location }) {
     </Card>
   );
 
-  
-// export const query = graphql`
-// query {
-//     e(id: {eq: $productId}) {
-//         id
-//         currency
-//         unit_amount
-//         product {
-//         id
-//         images
-//         description
-//         name
-//         }
-//     }
-// }
-// `
-  
   export default Events;

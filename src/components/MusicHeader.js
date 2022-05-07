@@ -42,7 +42,7 @@ function MusicHeader() {
         <div className="position-relative">
             <Carousel className="music-carousel" interval={150000} onSlide={handleNext} onSelect={handleNext}>
                 <Carousel.Item>
-                    <div className="d-flex justify-content-center bg-black w-100">
+                    <div style={opts} className="d-flex justify-content-center bg-black w-100">
                     <Youtube
                         videoId="JPD9NM2lAN4"
                         title="Venom Dolls - Fucked Up (The Live Rooms)"
