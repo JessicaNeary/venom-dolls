@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { useDispatch } from "react-redux";
 import { GatsbyImage } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
+import Carousel from "react-bootstrap/Carousel";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
@@ -11,7 +12,7 @@ import { toggleCartOpen, addToCart } from "../actions";
 
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const sizeRef = useRef(null);
-    const [ focusedImage, setFocus ] = useState(images.edges[0].node);
+    const [ focusedImageIndex, setFocus ] = useState(0);
     const [ highlightSizing, setHighlight ] = useState(false);
     const [ size, setSize ] = useState(null);
     const dispatch = useDispatch();
@@ -35,19 +36,41 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
       }
     }
 
+    const nextImage = () => {
+      if (focusedImageIndex === images.edges.length - 1) {
+        setFocus(0)
+      }
+      else setFocus(focusedImageIndex+1);
+    }    
+    
+    const prevImage = () => {
+      if (focusedImageIndex === 0) {
+        setFocus(images.edges.length - 1)
+      }
+      else setFocus(focusedImageIndex-1);
+    }
+
+    const focusedImage = images.edges[focusedImageIndex].node
+
     return (
     <Layout path="/merch">
       <div className="row justify-content-center p-3 text-dark">
-        <div className="col-12 col-md-10 col-lg-6 mb-4">
+        <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 position-relative">
           <GatsbyImage alt={focusedImage.name} image={focusedImage.childImageSharp.gatsbyImageData} />
+          <a class="carousel-control-prev" onClick={prevImage} role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" onClick={nextImage} role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
         </div>
-        <div className="d-none d-lg-block d-md-block col-lg-1 col-md-2">
-          { images.edges.map(({ node }) => (
+        <div className="d-none d-lg-block d-md-block col-2 col-lg-1">
+          { images.edges.map(({ node }, index) => (
             node.name !== focusedImage.name &&
-            <GatsbyImage className="mb-3" key={node.name} alt={node.name} image={node.childImageSharp.gatsbyImageData} onClick={() => setFocus(node)} />
+            <GatsbyImage className="mb-3" key={node.name} alt={node.name} image={node.childImageSharp.gatsbyImageData} onClick={() => setFocus(index)} />
           ))}
         </div>
-        <div className="col-12 col-lg-5">
+        <div className="col-12 col-lg-5 col-xl-6">
           <h2 className="text-uppercase mt-2 fw-bold">{stripePrice.product.name}</h2>
           <h4 className="text-danger mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
