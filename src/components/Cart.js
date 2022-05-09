@@ -57,29 +57,29 @@ const Cart = ({ cartOpen }) => {
     <Modal.Header closeButton />
     <Modal.Body>
         <div className="row mx-2 justify-content-between fw-bold">
-            <div className="col-6">MY CART</div>
+            <div className="col-4 col-md-6">MY CART</div>
             <div className="col-2 small">QTY</div>
-            <div className="col-1 small">PRICE</div>
-            <div className="col-1 small">SUBTOTAL</div>
+            <div className="col-2 col-md-1 small">PRICE</div>
+            <div className="d-none d-md-block col-1 small">SUBTOTAL</div>
             <div className="col-1"></div>
         </div>
         { items[0] ?
-            <div className="cart-products mx-2">
+            <div className="cart-products">
             {items.map((item, index) => {
                 return (
-                <div className="row border-bottom py-3 align-items-start justify-content-between" key={index}>
-                    <div className="col-6 d-flex">
-                        <div className="col-4"><GatsbyImage className="mr-3" alt={item.name} image={getImage(item.image)} /></div>
-                        <div className="col-8 mt-3 mx-4 px-3">
+                <div className="row mx-2 border-bottom py-3 align-items-start justify-content-between" key={index}>
+                    <div className="col-4 col-md-6 d-flex">
+                        <div className="d-none d-md-block col-4"><GatsbyImage className="mr-3" alt={item.name} image={getImage(item.image)} /></div>
+                        <div className="col-md-8 mt-2 mt-md-3 ms-md-4 ps-md-3">
                             <h6>{item.name}</h6>
                             <p className="fst-italic">{item.size && "Size: " + item.size}</p>
                         </div>
                     </div>
                     <div className="col-2 mt-2">
-                        <input className="w-50 text-center" type="number" min={1} defaultValue={item.quantity} onChange={adjustQuantity(item)} />
+                        <input className="w-100 w-md-50 text-center" type="number" min={1} defaultValue={item.quantity} onChange={adjustQuantity(item)} />
                     </div>
-                    <div className="col-1 mt-2">{formatPrice(item.price, "NZD")}</div>
-                    <div className="col-1 mt-2 fw-bold">{formatPrice(item.price*item.quantity, "NZD")}</div>
+                    <div className="d-none d-md-block col-1 mt-2">{formatPrice(item.price, "NZD")}</div>
+                    <div className="col-2 col-md-1 mt-2 fw-bold">{formatPrice(item.price*item.quantity, "NZD")}</div>
                     <div className="col-1 mt-2">
                         <button className="text-end btn btn-outline-dark border-0" onClick={() => dispatch(removeFromCart(item))}>X</button>
                     </div>
