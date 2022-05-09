@@ -56,7 +56,7 @@ const Cart = ({ cartOpen }) => {
     <Modal size="xl" show={cartOpen} onHide={toggleCart}>
     <Modal.Header closeButton />
     <Modal.Body>
-        <div className="row mx-2 justify-content-between fw-bold">
+        <div className="row mx-2 justify-content-between align-items-center fw-bold">
             <div className="col-4 col-md-6">MY CART</div>
             <div className="col-2 small">QTY</div>
             <div className="col-2 col-md-1 small">PRICE</div>
@@ -88,6 +88,7 @@ const Cart = ({ cartOpen }) => {
             </div>
             : <div className="m-2 p-4 border-top border-bottom">Your cart is empty.</div>
         }
+        { items[0] && <p className="small fst-italic mt-2">Please note: As our merch is all hand printed by a local business, please allow up to 2-3 weeks for your purchase to be dispatched.</p> }
         <div className="d-flex py-3 w-50 me-2 ms-auto justify-content-between">
             <h6 className="fw-bold">TOTAL</h6>
             <h6 className="fw-bold">{formatPrice(totalPrice, "NZD")}</h6>
