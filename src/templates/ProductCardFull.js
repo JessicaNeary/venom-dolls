@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import { useDispatch } from "react-redux";
 import { GatsbyImage } from "gatsby-plugin-image"
 import Dropdown from "react-bootstrap/Dropdown";
-import Carousel from "react-bootstrap/Carousel";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
@@ -57,12 +56,12 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
       <div className="row justify-content-center p-3 text-dark">
         <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 position-relative">
           <GatsbyImage alt={focusedImage.name} image={focusedImage.childImageSharp.gatsbyImageData} />
-          <a class="carousel-control-prev" onClick={prevImage} role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </a>
-          <a class="carousel-control-next" onClick={nextImage} role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </a>
+          <button className="carousel-control-prev" onClick={prevImage} data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button className="carousel-control-next" onClick={nextImage} data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
         <div className="d-none d-lg-block d-md-block col-2 col-lg-1">
           { images.edges.map(({ node }, index) => (

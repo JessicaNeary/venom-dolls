@@ -2,7 +2,10 @@ import { GET_EVENTS, GET_EVENTS_SUCCESS, GET_EVENTS_ERROR, CHECKOUT_ERROR, TOGGL
 import eventInPast from "./utils/eventInPast";
 
 const INITIAL_STATE = {
-    cart: [],
+    cart: {
+        items: [],
+        total: 0,
+    },
     cartError: null,
     cartOpen: false,
     sessionId: null,
@@ -23,6 +26,10 @@ item = { id: {
 }}
 */
 
+const getTotal = (items) => {
+    return items.reduce((prevValue, item) => prevValue + item.quantity*item.price, 0);
+}
+
 export const reducer = (state = INITIAL_STATE, actions ) => {
     switch(actions.type) {
         case(TOGGLE_CART_OPEN): {
@@ -33,7 +40,7 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
             }
         }
         case(ADD_TO_CART): {
-            const updatedCart = state.cart;
+            const updatedCart = state.cart.items;
             const itemId = updatedCart.findIndex(item => {
                 return (
                     item.id === actions.payload.item.id &&
@@ -44,13 +51,17 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
                 updatedCart[itemId].quantity++
             }
             else updatedCart.push({ ...actions.payload.item, quantity: 1 });
+            const total = getTotal(updatedCart)
             return {
                 ...state,
-                cart: updatedCart
+                cart: {
+                    items: updatedCart,
+                    total
+                }
             };
         }
         case(ADJUST_ITEM_QUANTITY): {
-            const updatedCart = state.cart;
+            const updatedCart = state.cart.items;
             const itemId = updatedCart.findIndex(item => {
                 return (
                     item.id === actions.payload.item.id &&
@@ -58,22 +69,30 @@ export const reducer = (state = INITIAL_STATE, actions ) => {
                 );
             });
             updatedCart[itemId].quantity = actions.payload.quantity
+            const total = getTotal(updatedCart)
             return {
                 ...state,
-                cart: updatedCart
-            }
+                cart: {
+                    items: updatedCart,
+                    total
+                }
+            };
         }
         case(REMOVE_FROM_CART): {
-            let updatedCart = state.cart;
+            let updatedCart = state.cart.items;
             updatedCart = updatedCart.filter(item => {
                 return (
                     item.id !== actions.payload.item.id ||
                     item.size !== actions.payload.item.size
                 );
             })
+            const total = getTotal(updatedCart)
             return {
                 ...state,
-                cart: updatedCart
+                cart: {
+                    items: updatedCart,
+                    total
+                }
             };
         }
         case(CLEAR_CART): {

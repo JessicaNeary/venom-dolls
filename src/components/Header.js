@@ -33,7 +33,6 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
     );
     const { width } = useWindowDimensions();
     const useMobileIcons = width < 577;
-    console.log(useMobileIcons)
     return (
         <div className={`container-fluid header-container z-index-2 w-100 position-fixed top-0 ${bgColor}`}>
             { width && 

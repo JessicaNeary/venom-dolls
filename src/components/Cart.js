@@ -13,14 +13,8 @@ import formatPrice from "../utils/formatPrice";
 const Cart = ({ cartOpen }) => {
     const [status, setStatus] = useState('idle');
     const sessionId = useSelector(store => store.sessionId)
-    const items = useSelector(store => store.cart)
+    const {items, total} = useSelector(store => store.cart)
     const dispatch = useDispatch();
-
-    const getTotal = () => {
-        return items.reduce((prevValue, item) => prevValue + item.quantity*item.price, 0)
-    }
-
-    const [totalPrice, setTotal] = useState(getTotal());
 
     useEffect( () => {
         if (sessionId) {
@@ -36,7 +30,6 @@ const Cart = ({ cartOpen }) => {
 
     const adjustQuantity = (item) => (e) => {
         dispatch(adjustItemQuantity(item, parseInt(e.target.value)))
-        setTotal(getTotal())
     };
 
     // dispatches create session call
@@ -91,7 +84,7 @@ const Cart = ({ cartOpen }) => {
         { items[0] && <p className="small fst-italic mt-2">Please note: As our merch is all hand printed by a local business, please allow up to 2-3 weeks for your purchase to be dispatched.</p> }
         <div className="d-flex py-3 w-50 me-2 ms-auto justify-content-between">
             <h6 className="fw-bold">TOTAL</h6>
-            <h6 className="fw-bold">{formatPrice(totalPrice, "NZD")}</h6>
+            <h6 className="fw-bold">{formatPrice(total, "NZD")}</h6>
         </div>
         <div className="d-flex mt-2 justify-content-end">
             <button
