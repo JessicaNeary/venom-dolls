@@ -52,9 +52,9 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const focusedImage = images.edges[focusedImageIndex].node
 
     return (
-    <Layout path="/merch">
+    <Layout path="/merch" whiteBg>
       <div className="row justify-content-center p-3 text-dark">
-        <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 position-relative">
+        <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 pb-4 position-relative">
           <GatsbyImage alt={focusedImage.name} image={focusedImage.childImageSharp.gatsbyImageData} />
           <button className="carousel-control-prev" onClick={prevImage} data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -91,7 +91,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
                 </Dropdown.Menu>
             </Dropdown>
           }
-          <button className="buy-btn w-100 mt-2 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
+          <button className="buy-btn w-100 mt-2 mb-4 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
         </div>
     </div>
     </Layout>

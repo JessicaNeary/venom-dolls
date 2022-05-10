@@ -12,7 +12,7 @@ function PaymentSuccess({ location }) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Layout path={location.pathname}>
+    <Layout path={location.pathname} whiteBg>
       <div className="text-center pt-4 text-dark">
         <h4 className="py-4 my-4">
           Payment successful!

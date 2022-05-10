@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 
 function PaymentSuccess({ location }) {
   return (
-    <Layout path={location.pathname} pageStyles="bg-black">
+    <Layout path={location.pathname}>
       <div className="text-center pt-4 text-white bg-black">
         <h4 className="py-4 my-4">
           Page not found

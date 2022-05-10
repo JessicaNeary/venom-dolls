@@ -25,9 +25,11 @@ body  {
 .page-body {
     position: relative;
     top: 59px;
+    min-height: calc(100vh - 59px);
     color: #f4f4f4;
     @media (min-width: 576px) { 
         top: 76px;
+        min-height: calc(100vh - 76px)
     }
 }
 
@@ -149,4 +151,14 @@ body  {
     background: $danger !important;
     border: 2px solid $danger;
     color: white;
+}
+
+.footer {
+    position: relative;
+    top: 36px;
+    font-size: 12px;
+    @media (min-width: 576px) { 
+        top: 43px;
+        font-size: 14px;
+    }
 }

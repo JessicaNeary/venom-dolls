@@ -20,7 +20,7 @@ function Events({ location }) {
     }, [])
 
     return (
-      <Layout path={location.pathname} pageStyles="bg-black">
+      <Layout path={location.pathname}>
         <div className="bg-black pt-4 text-light d-flex flex-column justify-content-center align-items-center w-100">
           <h2 className="pt-4 pb-2 my-4 fw-bold text-danger">UPCOMING EVENTS</h2>
           {(() => {
@@ -41,7 +41,7 @@ function Events({ location }) {
           {(() => {
             if (events.past[0]) {
               return (
-                <div className="row justify-content-center">
+                <div className="row justify-content-center pb-4">
                 {events.past.map(event => <EventItem event={event} isPast />)}
                 </div>
               )

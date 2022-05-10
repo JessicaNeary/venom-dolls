@@ -13,9 +13,9 @@ import Apple from '../images/socials/icons8-apple-logo.svg';
 
 function Home({ location }) {
   return (
-    <Layout path={location.pathname} pageStyles="bg-black">
+    <Layout path={location.pathname}>
       <div className="p-4 bg-black">
-        <div className="row px-2 py-4 p-sm-4 m-md-4 w-100 align-items-center">
+        <div className="row px-2 pt-4 p-sm-4 m-md-4 w-100 align-items-center">
           <div className="col-12 col-md-6 ms-md-4 py-4 p-sm-4">
             <h1>Venom Dolls</h1>
             <h6 className="mt-2 mb-4 fw-light text-light">
@@ -56,11 +56,14 @@ function Home({ location }) {
           </div>
         </div>
         <div className="mb-4 pb-4">
-          <a className="link-danger pb-2" target="_black" rel="noreferrer" href="https://www.muzic.net.nz/articles/reviews/92551/venom-dolls-ep-review-venom-dolls">
-            <h2 className="text-center mb-2">Muzic.net EP review</h2>
-          </a>
           <a className="link-danger p-2" target="_black" rel="noreferrer" href="https://95bfm.com/bcast/the-hard-fast-heavy-show-with-paddy-august-15th-2021-venom-2018-brrip-1080p-mp4">
-            <h2 className="text-center mb-4 pb-4">Hard Fast and Heavy show on 95BFM</h2>
+            <h2 className="text-center mb-2">Hard Fast and Heavy show on 95BFM</h2>
+          </a>
+          <a className="link-danger p-2" target="_black" rel="noreferrer" href="https://www.muzic.net.nz/articles/reviews/92551/venom-dolls-ep-review-venom-dolls">
+            <h2 className="text-center mb-2">Muzic.net EP review</h2>
+          </a>          
+          <a className="link-danger pb-2" target="_black" rel="noreferrer" href="https://www.muzic.net.nz/articles/reviews/93298/gig-review-rock-resurrection-dead-witch-auckland-29042022">
+            <h2 className="text-center pb-4">Rock Resurrection Gig Review</h2>
           </a>
         </div>
       </div>
