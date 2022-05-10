@@ -6,12 +6,14 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout"
+import SizeChart from "../components/Products/SizeChart";
 
 import { toggleCartOpen, addToCart } from "../actions";
 
 const ProductCardFull = ({ data: {stripePrice, images} }) => {
     const sizeRef = useRef(null);
     const [ focusedImageIndex, setFocus ] = useState(0);
+    const [ sizeChartOpen, toggleSizeChart ] = useState(false);
     const [ highlightSizing, setHighlight ] = useState(false);
     const [ size, setSize ] = useState(null);
     const dispatch = useDispatch();
@@ -49,6 +51,8 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
       else setFocus(focusedImageIndex-1);
     }
 
+    const toggle = () => toggleSizeChart(!sizeChartOpen);
+
     const focusedImage = images.edges[focusedImageIndex].node
 
     return (
@@ -74,11 +78,14 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           <h4 className="text-danger mt-2">{formatPrice(stripePrice.unit_amount, stripePrice.currency)}</h4>
           <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
           { needsSize && 
+            <button type="button" className="border-0 bg-transparent mt-4" onClick={toggle}>Size Chart</button>
+          }
+          { needsSize && 
             <Dropdown>
               <Dropdown.Toggle 
               ref={sizeRef}
               onFocus={() => setHighlight(false)} 
-              className={`w-100 mt-4 btn-light rounded-0 border-${highlightSizing ? 'danger' : 'dark'}`}>
+              className={`w-100 btn-light rounded-0 border-${highlightSizing ? 'danger' : 'dark'}`}>
                 {size || "SIZING"}
               </Dropdown.Toggle>
               <Dropdown.Menu className="w-100">
@@ -94,6 +101,7 @@ const ProductCardFull = ({ data: {stripePrice, images} }) => {
           <button className="buy-btn w-100 mt-2 mb-4 p-1 btn-dark rounded-0" onClick={handleBuy}>BUY NOW</button>
         </div>
     </div>
+    <SizeChart isOpen={sizeChartOpen} toggle={toggle} />
     </Layout>
 )}
 
