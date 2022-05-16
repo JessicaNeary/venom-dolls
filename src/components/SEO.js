@@ -3,7 +3,9 @@ import { graphql } from "gatsby";
 import { useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 
-const SEO = ({ title, description, meta, lang }) => {
+import image from "../images/venom-dolls-graf-shot.jpg";
+
+const Seo = ({ title, description, meta, lang }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -12,14 +14,12 @@ const SEO = ({ title, description, meta, lang }) => {
             title
             description
             keywords
-            image
           }
         }
       }
     `
   );
   const keywords = site.siteMetadata.keywords;
-  const image = site.siteMetadata.image;
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
   const pageTitle = defaultTitle ? `${title} | ${defaultTitle}` : title;
@@ -51,7 +51,7 @@ const SEO = ({ title, description, meta, lang }) => {
           content: metaDescription,
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: image,
         },
         {
@@ -83,10 +83,10 @@ const SEO = ({ title, description, meta, lang }) => {
   );
 };
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 };
 
-export default SEO;
+export default Seo;

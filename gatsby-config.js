@@ -7,7 +7,6 @@ module.exports = {
     title: `Venom Dolls`,
     description: `3 piece all-girl punk/alt rock band from Auckland, NZ. Fast paced, highly relatable tunes sure to get you dancing/moshing/accidentally injuring your neighbor.`,
     keywords: `girl punk bands, girl punk bands 2022, new girl punk bands, auckland bands, new zealand bands, all female bands, girl rock bands`,
-    image: `src/images/venom-dolls-graf-shot.jpg`,
     siteUrl: `https://www.venomdolls.co.nz`,
   },
   plugins: [
