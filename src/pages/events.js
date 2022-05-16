@@ -6,6 +6,7 @@ import formatDate from "../utils/formatDate";
 import formatLocation from "../utils/formatLocation";
 import { getEvents } from "../actions";
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import Loader from "../components/Loader";
 
 function Events({ location }) {
@@ -19,8 +20,33 @@ function Events({ location }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const getDescription = () => {
+    let description = "";
+    if (events.current[0]) {
+      for (const event of events.current) {
+        if (description.length > 160) break;
+        else
+          description += `${event.name} ${formatDate(event.start_time)} ${
+            event.place.name
+          }, `;
+      }
+    }
+    if (events.past[0]) {
+      for (const event of events.past) {
+        if (description.length > 160) break;
+        else
+          description += `${event.name} ${formatDate(event.start_time)} ${
+            event.place.name
+          }, `;
+      }
+    }
+    if (description !== "") return description;
+    else return null;
+  };
+  const description = getDescription();
   return (
     <Layout path={location.pathname}>
+      <Seo title="Events" description={description} />
       <div className="bg-black pt-4 text-light d-flex flex-column justify-content-center align-items-center w-100">
         <h2 className="pt-4 pb-2 my-4 fw-bold text-danger">UPCOMING EVENTS</h2>
         {(() => {
@@ -56,7 +82,7 @@ function Events({ location }) {
             return (
               <div className="row justify-content-center pb-4">
                 {events.past.map((event) => (
-                  <EventItem event={event} isPast />
+                  <EventItem event={event} isPast key={event.id} />
                 ))}
               </div>
             );

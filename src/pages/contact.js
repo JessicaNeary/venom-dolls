@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
 import Facebook from "../images/socials/icons8-facebook.svg";
 import Instagram from "../images/socials/icons8-instagram.svg";
@@ -7,6 +8,7 @@ import Instagram from "../images/socials/icons8-instagram.svg";
 function PaymentSuccess({ location }) {
   return (
     <Layout path={location.pathname}>
+      <Seo title="Contact" />
       <div className="text-center pt-4 text-white bg-black">
         <h3 className="py-4 mt-4">CONTACT</h3>
         <h6 className="w-75 w-md-50 m-auto fw-normal">

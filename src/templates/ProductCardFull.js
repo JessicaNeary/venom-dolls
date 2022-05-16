@@ -6,6 +6,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 import formatPrice from "../utils/formatPrice";
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import SizeChart from "../components/Products/SizeChart";
 
 import { toggleCartOpen, addToCart } from "../actions";
@@ -57,6 +58,7 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
 
   return (
     <Layout path="/merch" whiteBg>
+      <Seo title={stripePrice.product.name} />
       <div className="row justify-content-center p-3 text-dark">
         <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 pb-4 position-relative">
           <GatsbyImage

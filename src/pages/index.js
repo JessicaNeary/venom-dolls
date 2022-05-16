@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import Facebook from "../images/socials/icons8-facebook.svg";
 import Instagram from "../images/socials/icons8-instagram.svg";
 import Spotify from "../images/socials/icons8-spotify.svg";
@@ -14,15 +15,16 @@ import Apple from "../images/socials/icons8-apple-logo.svg";
 function Home({ location }) {
   return (
     <Layout path={location.pathname}>
+      <Seo title="Home" />
       <div className="p-4 bg-black">
         <div className="row px-2 pt-4 p-sm-4 m-md-4 w-100 align-items-center">
           <div className="col-12 col-md-6 ms-md-4 py-4 p-sm-4">
             <h1>Venom Dolls</h1>
             <h6 className="mt-2 mb-4 fw-light text-light">
-              Venom Dolls are a 3 piece all-girl alt rock band formed at the end
-              of 2020. With a freshly released EP, their fast paced, highly
-              relatable tunes are sure to get you dancing/moshing/accidentally
-              injuring your neighbor.
+              Venom Dolls are a 3 piece all-girl punk/alt rock band formed at
+              the end of 2020. With a freshly released EP, their fast paced,
+              highly relatable tunes are sure to get you
+              dancing/moshing/accidentally injuring your neighbor.
             </h6>
             <Link to="/music" className="listen-btn btn btn-outline-light mt-2">
               Listen now

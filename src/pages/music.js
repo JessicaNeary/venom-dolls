@@ -1,11 +1,13 @@
 import React from "react";
 
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import MusicHeader from "../components/MusicHeader";
 
 function Music({ location }) {
   return (
     <Layout path={location.pathname}>
+      <Seo title="Music" />
       <div className="z-index-1 w-100 bg-black">
         <MusicHeader />
         <div className="py-4 d-flex flex-column justify-content-center align-items-center w-100">
