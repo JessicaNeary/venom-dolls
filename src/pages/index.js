@@ -20,12 +20,12 @@ function Home({ location }) {
         <div className="row px-2 pt-4 p-sm-4 m-md-4 w-100 align-items-center">
           <div className="col-12 col-md-6 ms-md-4 py-4 p-sm-4">
             <h1>Venom Dolls</h1>
-            <h6 className="mt-2 mb-4 fw-light text-light">
+            <h2 className="h6 mt-2 mb-4 fw-light text-light">
               Venom Dolls are a 3 piece all-girl punk/alt rock band formed at
               the end of 2020. With a freshly released EP, their fast paced,
               highly relatable tunes are sure to get you
               dancing/moshing/accidentally injuring your neighbor.
-            </h6>
+            </h2>
             <Link to="/music" className="listen-btn btn btn-outline-light mt-2">
               Listen now
             </Link>
@@ -51,6 +51,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://www.facebook.com/thevenomdolls/"
+              aria-label="Facebook link"
             >
               <Facebook
                 className="socials-icon"
@@ -61,6 +62,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://www.instagram.com/venomdollsnz/"
+              aria-label="Instagram link"
             >
               <Instagram
                 className="socials-icon"
@@ -71,6 +73,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://venomdolls.bandcamp.com/"
+              aria-label="Bandcamp link"
             >
               <Bandcamp
                 className="socials-icon"
@@ -81,6 +84,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://soundcloud.com/venomdolls"
+              aria-label="Soundcloud link"
             >
               <Soundcloud
                 className="socials-icon"
@@ -91,6 +95,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://open.spotify.com/artist/5Z0X2J07rdkyv59qNlxWeZ?si=NB5a31rYRSq-UeIyihhrDA&dl_branch=1"
+              aria-label="Spotify link"
             >
               <Spotify className="socials-icon" alt="Spotify Icon by Icons8" />
             </a>
@@ -98,6 +103,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://youtube.com/channel/UCNs7xLhTy8FVcNCx-O-vOsg"
+              aria-label="Youtube link"
             >
               <Youtube className="socials-icon" alt="Youtube Icon by Icons8" />
             </a>
@@ -105,6 +111,7 @@ function Home({ location }) {
               target="_blank"
               rel="noreferrer"
               href="https://music.apple.com/us/artist/venom-dolls/1578434812"
+              aria-label="Apple music link"
             >
               <Apple
                 className="socials-icon"
@@ -121,7 +128,7 @@ function Home({ location }) {
               className="d-block w-100"
               alt="Carawei Gao Profile Picture"
             />
-            <h5 className="text-danger my-4 fw-bold text-center">CARAWEI</h5>
+            <h3 className="h5 text-danger my-4 fw-bold text-center">CARAWEI</h3>
             <p>
               Carawei is the bands guitarist, producer, and equipment guru. The
               founder of 'Milky Avenue Studios', an LGBTQ+ music studio based in
@@ -140,7 +147,7 @@ function Home({ location }) {
               className="d-block w-100"
               alt="Jessica Frank Profile Picture"
             />
-            <h5 className="text-danger my-4 fw-bold text-center">JESS</h5>
+            <h3 className="h5 text-danger my-4 fw-bold text-center">JESS</h3>
             <p>
               Bassist and lead vocalist of the group, Jessica Frank developed
               her tone whilst belting out the oldies during her long Auckland
@@ -158,7 +165,7 @@ function Home({ location }) {
               className="d-block w-100"
               alt="Summah Auvae Profile Picture"
             />
-            <h5 className="text-danger my-4 fw-bold text-center">SUMMAH</h5>
+            <h3 className="h5 text-danger my-4 fw-bold text-center">SUMMAH</h3>
             <p>
               Summah 'the Drummer' Auvae, formerly of the band Bad Sport, has
               been obsessed with drums since the moment she first heard Led
@@ -175,9 +182,9 @@ function Home({ location }) {
             rel="noreferrer"
             href="https://95bfm.com/bcast/the-hard-fast-heavy-show-with-paddy-august-15th-2021-venom-2018-brrip-1080p-mp4"
           >
-            <h2 className="text-center mb-2">
+            <h4 className="h2 text-center mb-2">
               Hard Fast and Heavy show on 95BFM
-            </h2>
+            </h4>
           </a>
           <a
             className="link-danger p-2"
@@ -185,7 +192,7 @@ function Home({ location }) {
             rel="noreferrer"
             href="https://www.muzic.net.nz/articles/reviews/92551/venom-dolls-ep-review-venom-dolls"
           >
-            <h2 className="text-center mb-2">Muzic.net EP review</h2>
+            <h4 className="h2 text-center mb-2">Muzic.net EP review</h4>
           </a>
           <a
             className="link-danger pb-2"
@@ -193,7 +200,9 @@ function Home({ location }) {
             rel="noreferrer"
             href="https://www.muzic.net.nz/articles/reviews/93298/gig-review-rock-resurrection-dead-witch-auckland-29042022"
           >
-            <h2 className="text-center pb-4">Rock Resurrection Gig Review</h2>
+            <h4 className="h2 text-center pb-4">
+              Rock Resurrection Gig Review
+            </h4>
           </a>
         </div>
       </div>

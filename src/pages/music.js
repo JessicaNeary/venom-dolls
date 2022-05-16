@@ -28,7 +28,7 @@ function Music({ location }) {
             title="Venom Dolls on Spotify"
             src="https://open.spotify.com/embed/artist/5Z0X2J07rdkyv59qNlxWeZ?utm_source=generator"
             frameBorder="0"
-            allowfullscreen=""
+            allowFullScreen=""
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           ></iframe>
           <h2 className="my-4 ">Apple Music</h2>
@@ -36,7 +36,7 @@ function Music({ location }) {
             className="apple-embedded rounded w-75 mb-4"
             title="Venom Dolls on Apple Music"
             src="https://embed.music.apple.com/us/album/the-venom-dolls-ep/1579428533?app=music&amp;itsct=music_box_player&amp;itscg=30200&amp;ls=1"
-            frameborder="0"
+            frameBorder="0"
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
             allow="autoplay *; encrypted-media *;"
           ></iframe>

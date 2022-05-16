@@ -1,164 +1,170 @@
 @import "~bootstrap/scss/bootstrap";
 
-body  {
-    font-family: 'Josefin Sans', sans-serif;
+body {
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .z-index-1 {
-    z-index: 1 !important;
+  z-index: 1 !important;
 }
 
 .z-index-2 {
-    z-index: 2 !important;
+  z-index: 2 !important;
 }
 
 .link-styles {
-    text-decoration: none !important;
-    color: black;
-    text-transform: uppercase;
+  text-decoration: none !important;
+  color: black;
+  text-transform: uppercase;
 }
 
 .nav-link:hover {
-    color: $secondary !important;
+  color: $secondary !important;
 }
 
 .page-body {
-    position: relative;
-    top: 59px;
-    min-height: calc(100vh - 59px);
-    color: #f4f4f4;
-    @media (min-width: 576px) { 
-        top: 76px;
-        min-height: calc(100vh - 76px)
-    }
+  position: relative;
+  top: 59px;
+  min-height: calc(100vh - 59px);
+  color: #f4f4f4;
+  @media (min-width: 576px) {
+    top: 76px;
+    min-height: calc(100vh - 76px);
+  }
 }
 
 .bg-black {
-    background-color: #121212 !important;
+  background-color: #121212 !important;
 }
 
 .neon-dolls {
-    border-radius: 25%;
-    position: relative;
+  border-radius: 25%;
+  position: relative;
 }
 
 .neon-dolls::after {
-    box-shadow: inset 0 0 30px 1px #121212;
-    border-radius: 25%;
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
+  box-shadow: inset 0 0 30px 1px #121212;
+  border-radius: 25%;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .shopNowButton {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 500;
 }
 
 .header-container {
-    transition: background-color 0.3s;
+  transition: background-color 0.3s;
 }
 
 .modal-xl {
-    max-width: 95%;
+  max-width: 95%;
 }
 
 .margin-end {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .cart-products {
-    border-bottom: 2px solid #5e5e5e;
-    border-top: 2px solid #5e5e5e;
+  border-bottom: 2px solid #5e5e5e;
+  border-top: 2px solid #5e5e5e;
 }
 
 .no-focus:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .music-carousel .carousel-indicators {
-    display: none;
+  display: none;
 }
 
 .youtube-embedded {
-    height: '390px';
-    width: '640px';
+  height: "390px";
+  width: "640px";
 }
 
-.bandcamp-embedded, .spotify-embedded {
-    height: 307px;
-    max-width: 700px;
+.bandcamp-embedded,
+.spotify-embedded {
+  height: 307px;
+  max-width: 700px;
 }
 
 .apple-embedded {
-    height: 450px;
-    max-width: 700px;
+  height: 450px;
+  max-width: 700px;
 }
 
 .event-description {
-    max-height: 300px;
-    overflow-y: auto;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .text-light {
-    color: #d3d3d3 !important;
+  color: #d3d3d3 !important;
 }
 
 .text-white {
-    color: #f4f4f4 !important;
+  color: #f4f4f4 !important;
 }
 
 .socials-icon {
-    opacity: 0.9;
-    @media (max-width: 575px) {
-        width: 25px;
-    }
+  opacity: 0.9;
+  @media (max-width: 575px) {
+    width: 25px;
+  }
 }
 
-.socials-icon, .shopping-cart {
-    transition: fill .2s;
+.socials-icon,
+.shopping-cart {
+  transition: fill 0.2s;
+  &:hover {
+    fill: $danger !important;
+  }
+}
+
+.socials-icon {
+  @media (max-width: 575px) {
+    fill: $danger;
+    opacity: 1;
     &:hover {
-        fill: $danger !important;
+      fill: white !important;
     }
-}
-
-.socials-icon {
-    @media (max-width: 575px) {
-        fill: $danger;
-        opacity: 1;
-        &:hover {
-            fill: white !important;
-        }
-    }
+  }
 }
 
 .listen-btn:hover {
-    background: $danger !important;
-    border: 1px solid $danger;
-    color: white;
+  background: $danger !important;
+  border: 1px solid $danger;
+  color: white;
 }
 
 .buy-btn:hover {
-    background: $danger !important;
-    border: 2px solid $danger;
-    color: white;
+  background: $danger !important;
+  border: 2px solid $danger;
+  color: white;
+}
+
+.email-contact-link {
+  color: red !important;
 }
 
 .footer {
-    position: relative;
-    top: 36px;
-    font-size: 12px;
-    @media (min-width: 576px) { 
-        top: 43px;
-        font-size: 14px;
-    }
+  position: relative;
+  top: 36px;
+  font-size: 12px;
+  @media (min-width: 576px) {
+    top: 43px;
+    font-size: 14px;
+  }
 }

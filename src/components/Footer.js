@@ -3,7 +3,7 @@ import React from "react";
 const Footer = ({ whiteBg }) => {
   const fontColor = whiteBg ? "text-dark" : "text-light";
   return (
-    <div
+    <footer
       className={`${fontColor} ${
         !whiteBg && "bg-black"
       } footer pt-2 pb-1 px-2 w-100 d-flex justify-content-between align-items-center`}
@@ -20,7 +20,7 @@ const Footer = ({ whiteBg }) => {
           Privacy Policy
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

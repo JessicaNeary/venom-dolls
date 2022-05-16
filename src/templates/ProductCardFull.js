@@ -58,7 +58,10 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
 
   return (
     <Layout path="/merch" whiteBg>
-      <Seo title={stripePrice.product.name} />
+      <Seo
+        title={stripePrice.product.name}
+        description={stripePrice.product.description}
+      />
       <div className="row justify-content-center p-3 text-dark">
         <div className="col-12 col-md-10 col-lg-6 col-xl-5 mb-4 pb-4 position-relative">
           <GatsbyImage
@@ -101,13 +104,15 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
           )}
         </div>
         <div className="col-12 col-lg-5 col-xl-6">
-          <h2 className="text-uppercase mt-2 fw-bold">
+          <h1 className="h2 text-uppercase mt-2 fw-bold">
             {stripePrice.product.name}
-          </h2>
-          <h4 className="text-danger mt-2">
+          </h1>
+          <h2 className="h4 text-danger mt-2">
             {formatPrice(stripePrice.unit_amount, stripePrice.currency)}
-          </h4>
-          <h5 className="fw-normal mt-4">{stripePrice.product.description}</h5>
+          </h2>
+          <h3 className="h5 fw-normal mt-4">
+            {stripePrice.product.description}
+          </h3>
           {needsSize && (
             <button
               type="button"

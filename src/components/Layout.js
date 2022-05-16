@@ -27,7 +27,7 @@ const Layout = ({
         handleCartClick={() => dispatch(toggleCartOpen())}
       />
       <Cart cartOpen={cartOpen} />
-      <div className={!clearHeader ? "page-body" : ""}>{children}</div>
+      <main className={!clearHeader ? "page-body" : ""}>{children}</main>
       <Footer whiteBg={whiteBg} />
     </div>
   );
