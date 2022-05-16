@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { useStaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 
-import image from "../images/venom-dolls-graf-shot.jpg";
+import image from "../images/venom-dolls-car.jpg";
 
 const Seo = ({ title, description, meta, lang }) => {
   const { site } = useStaticQuery(

@@ -5,9 +5,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Venom Dolls`,
-    description: `3 piece all-girl punk/alt rock band from Auckland, NZ. Fast paced, highly relatable tunes sure to get you dancing/moshing/accidentally injuring your neighbor.`,
+    description: `3 piece punk/alt rock band from Auckland, NZ. Fast paced, highly relatable tunes sure to get you dancing/moshing/accidentally injuring your neighbor.`,
     keywords: `girl punk bands, girl punk bands 2022, new girl punk bands, auckland bands, new zealand bands, all female bands, girl rock bands`,
-    siteUrl: `https://www.venomdolls.co.nz`,
+    siteUrl: "https://www.venomdolls.co.nz",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -17,6 +17,7 @@ module.exports = {
         trackingId: '"G-LTPBK35FG2"',
       },
     },
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",

@@ -22,25 +22,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// export const getSession = (items, shipping_rate) => {
-//     return axios.post('/create-checkout-session', { items: items, shipping_rate: shipping_rate })
-//       .then(res => {
-//         return res.id;
-//       })
-//       .catch(error => {
-//         return error
-//       })
-//   };
-
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-
-// let stripePromise;
-// const getStripe = () => {
-//   if (!stripePromise) {
-//     stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY)
-//   }
-//   return stripePromise
-// }
 
 app.post("/checkout", async function (req, res) {
   try {
