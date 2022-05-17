@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import "@stripe/stripe-js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./src/styles.scss";
