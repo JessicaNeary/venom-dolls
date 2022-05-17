@@ -115,7 +115,7 @@ export const getEvents = () => {
       type: GET_EVENTS,
     });
     axios({
-      url: `https://graph.facebook.com/v9.0/${process.env.FB_PAGE_ID}/events?fields=cover,name,description,ticket_uri,end_time,start_time,place&access_token=${process.env.FB_PAGE_ACCESS_TOKEN}`,
+      url: `https://graph.facebook.com/v9.0/${process.env.REACT_APP_FB_PAGE_ID}/events?fields=cover,name,description,ticket_uri,end_time,start_time,place&access_token=${process.env.REACT_APP_FB_PAGE_ACCESS_TOKEN}`,
       method: "get",
     })
       .then((response) => {
