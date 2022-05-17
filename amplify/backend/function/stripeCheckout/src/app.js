@@ -44,8 +44,8 @@ app.post("/checkout", async function (req, res) {
       },
       shipping_options: [{ shipping_rate: req.body.shippingRate }],
       mode: "payment",
-      success_url: `http://localhost:8000/payment-success/`,
-      cancel_url: `http://localhost:8000/merch`,
+      success_url: `http://venomdolls.co.nz/payment-success/`,
+      cancel_url: `http://venomdolls.co.nz/merch`,
       line_items: lineItems,
       metadata: {
         products_purchased: sizeInfo.join(". "),
