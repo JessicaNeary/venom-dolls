@@ -1,20 +1,14 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import Cart from "./Cart";
 
 import { toggleCartOpen } from "../actions";
 
-const Layout = ({
-  children,
-  path,
-  pageRef,
-  pageStyles = "",
-  clearHeader = false,
-  whiteBg,
-}) => {
+const Cart = React.lazy(() => import("./Cart"));
+
+const Layout = ({ children, path, pageRef, clearHeader = false, whiteBg }) => {
   const cartOpen = useSelector((store) => store.cartOpen);
   const dispatch = useDispatch();
   return (
@@ -26,7 +20,9 @@ const Layout = ({
         shouldDisplayCart={cartOpen}
         handleCartClick={() => dispatch(toggleCartOpen())}
       />
-      <Cart cartOpen={cartOpen} />
+      <Suspense fallback={<div className="d-none" />}>
+        <Cart cartOpen={cartOpen} />
+      </Suspense>
       <main className={!clearHeader ? "page-body" : ""}>{children}</main>
       <Footer whiteBg={whiteBg} />
     </div>
