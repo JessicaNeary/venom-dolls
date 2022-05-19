@@ -10,7 +10,7 @@ import "typeface-josefin-sans";
 
 import { reducer } from "./src/reducers";
 
-import { Amplify } from "aws-amplify";
+import Amplify from "@aws-amplify/api-rest";
 import awsconfig from "./src/aws-exports";
 Amplify.configure(awsconfig);
 

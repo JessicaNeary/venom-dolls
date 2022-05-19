@@ -1,4 +1,4 @@
-import { API } from "aws-amplify";
+import API from "@aws-amplify/api-rest";
 import axios from "axios";
 
 export const TOGGLE_CART_OPEN = "TOGGLE_CART_OPEN";
