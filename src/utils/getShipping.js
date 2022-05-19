@@ -5,7 +5,7 @@ const getShipping = (lineItems) => {
       return item.name.match(/(Hoodie)/);
     })
   ) {
-    return "shr_1KaWd3KtGQ4ZHKav4Zr4Ih38";
+    return process.env.GATSBY_SHIPPING_LARGE;
   }
   // contains more than one tee shirt
   let teeCount = 0;
@@ -15,8 +15,8 @@ const getShipping = (lineItems) => {
     }
   });
   if (teeCount > 1) {
-    return "shr_1KaWd3KtGQ4ZHKav4Zr4Ih38";
-  } else return "shr_1KaWdNKtGQ4ZHKav4g0p9r6i";
+    return process.env.GATSBY_SHIPPING_LARGE;
+  } else return process.env.GATSBY_SHIPPING_SMALL;
 };
 
 export default getShipping;
