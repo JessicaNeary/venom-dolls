@@ -8,7 +8,11 @@ exports.handler = async (event) => {
   };
   var params = {
     Destination: {
-      ToAddresses: ["jessicafneary@gmail.com"],
+      ToAddresses: [
+        "venomdollsnz@gmail.com",
+        "stickeruup@gmail.com",
+        "summah.auvae@gmail.com",
+      ],
     },
     Template: "PurchaseNotificationEmail",
     TemplateData: `{ \"name\":\"${event.shipping.name}\", \"line1\":\"${
