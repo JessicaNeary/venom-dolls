@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useSelector, useDispatch } from "react-redux";
 
-import getStripe from "../utils/stripejs";
+import getStripe from "../utils/stripejs/pure";
 
 import {
   removeFromCart,
