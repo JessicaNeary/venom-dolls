@@ -3,17 +3,12 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import "@stripe/stripe-js";
 
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./src/styles.scss";
 import "typeface-josefin-sans";
 
 import { reducer } from "./src/reducers";
-
-import { Amplify } from "aws-amplify";
-import awsconfig from "./src/aws-exports";
-Amplify.configure(awsconfig);
 
 const wrapPageElement = ({ element }) => {
   const store = createStore(
