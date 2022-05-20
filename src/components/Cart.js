@@ -3,7 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { useSelector, useDispatch } from "react-redux";
 
-import getStripe from "../utils/stripejs/pure";
+import getStripe from "../utils/stripejs";
+
+import Loader from "./Loader";
 
 import {
   removeFromCart,
@@ -134,7 +136,7 @@ const Cart = ({ cartOpen }) => {
             disabled={status === "loading" || !items[0]}
             onClick={handleCheckout}
           >
-            {status === "loading" ? "LOADING" : "PROCEED TO CHECKOUT"}
+            {status === "loading" ? <Loader small /> : "PROCEED TO CHECKOUT"}
           </button>
           <button
             className="px-3 btn btn-dark rounded-0"
