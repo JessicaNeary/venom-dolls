@@ -1,9 +1,9 @@
 import React from "react";
 
-import "./loaderstyles.css";
+import "./loaderstyles.scss";
 
-const Loading = () => (
-  <div class="loader">
+const Loading = ({ small = false }) => (
+  <div class={`loader ${small && "loader-small"}`}>
     <div class="loader-inner">
       <div class="loader-line-wrap">
         <div class="loader-line"></div>
