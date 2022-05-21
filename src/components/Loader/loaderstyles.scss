@@ -95,3 +95,18 @@
     transform: rotate(360deg);
   }
 }
+
+.loader-small {
+  left: 0px;
+  top: -6px;
+  width: 200px;
+  height: initial;
+  & .loader-inner {
+    transform: scale(0.3);
+  }
+  @media (max-width: 575px) {
+    width: 115px;
+  }
+}
+
+/*width 164.5, height 62*/
