@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import loadable from "@loadable/component";
 
 import Header from "./Header";
@@ -10,7 +10,6 @@ import { toggleCartOpen } from "../actions";
 const Cart = loadable(() => import("./Cart"));
 
 const Layout = ({ children, path, pageRef, clearHeader = false, whiteBg }) => {
-  const cartOpen = useSelector((store) => store.cartOpen);
   const dispatch = useDispatch();
   return (
     <div className={`min-vh-100 ${!whiteBg && "bg-black"} pb-4`}>
@@ -18,10 +17,9 @@ const Layout = ({ children, path, pageRef, clearHeader = false, whiteBg }) => {
         path={path}
         pageRef={pageRef}
         clearHeader={clearHeader}
-        shouldDisplayCart={cartOpen}
         handleCartClick={() => dispatch(toggleCartOpen())}
       />
-      <Cart cartOpen={cartOpen} />
+      <Cart />
       <main className={!clearHeader ? "page-body" : ""}>{children}</main>
       <Footer whiteBg={whiteBg} />
     </div>

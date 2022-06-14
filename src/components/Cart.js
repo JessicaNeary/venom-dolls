@@ -17,9 +17,10 @@ import {
 import getShipping from "../utils/getShipping";
 import formatPrice from "../utils/formatPrice";
 
-const Cart = ({ cartOpen }) => {
+const Cart = () => {
   const [status, setStatus] = useState("idle");
   const sessionId = useSelector((store) => store.sessionId);
+  const cartOpen = useSelector((store) => store.cartOpen);
   const { items, total } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
 

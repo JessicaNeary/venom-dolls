@@ -145,7 +145,9 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
               </li>
               <li>
                 <button
-                  className={`btn btn-outline-dark ${useMobileIcons && "p-0"}`}
+                  className={`shopping-cart-btn btn btn-outline-dark ${
+                    useMobileIcons && "p-0"
+                  }`}
                   onClick={handleCartClick}
                 >
                   <ShoppingCart
@@ -165,7 +167,7 @@ function Header({ path, pageRef, clearHeader, handleCartClick }) {
               }`}
             >
               <button
-                className={`btn btn-outline-dark no-focus border-0 ${
+                className={`shopping-cart-btn btn btn-outline-dark no-focus border-0 ${
                   useMobileIcons && "p-0"
                 }`}
                 onClick={handleCartClick}

@@ -166,3 +166,8 @@ body {
     font-size: 14px;
   }
 }
+
+.shopping-cart-btn:focus {
+  outline: 1px solid white !important;
+  border-radius: 5px;
+}
