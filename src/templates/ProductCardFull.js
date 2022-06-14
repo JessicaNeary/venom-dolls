@@ -52,6 +52,10 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
     } else setFocus(focusedImageIndex - 1);
   };
 
+  const setImage = (index) => () => {
+    setFocus(index);
+  };
+
   const toggle = () => toggleSizeChart(!sizeChartOpen);
 
   const focusedImage = images.edges[focusedImageIndex].node;
@@ -93,13 +97,17 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
           {images.edges.map(
             ({ node }, index) =>
               node.name !== focusedImage.name && (
-                <GatsbyImage
-                  className="mb-3"
-                  key={node.name}
-                  alt={node.name}
-                  image={node.childImageSharp.gatsbyImageData}
-                  onClick={() => setFocus(index)}
-                />
+                <button
+                  className="border-0 p-0 bg-transparent"
+                  onClick={setImage(index)}
+                >
+                  <GatsbyImage
+                    className="mb-3"
+                    key={node.name}
+                    alt={node.name}
+                    image={node.childImageSharp.gatsbyImageData}
+                  />
+                </button>
               )
           )}
         </div>
