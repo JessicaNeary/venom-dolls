@@ -111,6 +111,9 @@ body {
 
 .text-light {
   color: #d3d3d3 !important;
+  &:hover {
+    color: #f4f4f4 !important;
+  }
 }
 
 .text-white {

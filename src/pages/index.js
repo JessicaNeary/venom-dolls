@@ -174,35 +174,45 @@ function Home({ location }) {
               drooling over double kicks and chinas.
             </p>
           </div>
+          4{" "}
         </div>
         <div className="mb-4 pb-4">
+          <h4 className="h1 text-center text-danger">
+            Latest Reviews, Interviews and Radio shows
+          </h4>
           <a
-            className="link-danger p-2"
+            className="p-2 text-light"
             target="_black"
             rel="noreferrer"
-            href="https://95bfm.com/bcast/the-hard-fast-heavy-show-with-paddy-august-15th-2021-venom-2018-brrip-1080p-mp4"
+            href="https://nexusmag.co.nz/full-exposure-venom-dolls/"
           >
-            <h4 className="h2 text-center mb-2">
-              Hard Fast and Heavy show on 95BFM
-            </h4>
+            <h4 className="h4 text-center mb-2">Nexus Magazine Interview</h4>
           </a>
           <a
-            className="link-danger p-2"
+            className="p-2 text-light"
             target="_black"
             rel="noreferrer"
-            href="https://www.muzic.net.nz/articles/reviews/92551/venom-dolls-ep-review-venom-dolls"
+            href="https://95bfm.com/bcast/fancy-new-band-w-venom-dolls-friday-may-27-2022"
           >
-            <h4 className="h2 text-center mb-2">Muzic.net EP review</h4>
+            <h4 className="h4 text-center mb-2">Fancy New Band Radio Show</h4>
           </a>
           <a
-            className="link-danger pb-2"
+            className="pb-2 text-light"
             target="_black"
             rel="noreferrer"
             href="https://www.muzic.net.nz/articles/reviews/93298/gig-review-rock-resurrection-dead-witch-auckland-29042022"
           >
-            <h4 className="h2 text-center pb-4">
+            <h4 className="h4 text-center pb-4">
               Rock Resurrection Gig Review
             </h4>
+          </a>
+          <a
+            className="pb-2 text-light"
+            target="_black"
+            rel="noreferrer"
+            href="https://linktr.ee/thevenomdolls?fbclid=IwAR11NMjYB6XcKyR1v2UpcnI-1T7t7ML7fOvUPB-DRkoUOeF1Ti6vFdqP9yU"
+          >
+            <h4 className="h4 text-center pb-4">More</h4>
           </a>
         </div>
       </div>
