@@ -10,6 +10,9 @@ function AddImages() {
   stripe.products.update("prod_L9MetSis2sCbTj", {
     images: ["merch/products/white-cartoon-tee"],
   });
+  stripe.products.update("prod_LsC9WFAXYIyyXB", {
+    images: ["merch/products/white-succubus-tee"],
+  });
   stripe.products.update("prod_L9Mdm2TqN0VjmF", {
     images: ["merch/products/black-succubus-tee"],
   });
