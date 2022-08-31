@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvenom_dolls=self.webpackChunkvenom_dolls||[]).push([[862],{9029:function(e,t,n){n.r(t);var a=n(7294),c=n(5873),s=n(9324),l=n(8084);t.default=function(e){var t=e.location,n=(0,c.I0)();return(0,a.useEffect)((function(){n((0,s.LL)())}),[]),a.createElement(l.Z,{path:t.pathname},a.createElement("div",{className:"text-center pt-4"},a.createElement("h4",{className:"pt-4 mt-4"},"Payment successful!")))}}}]);
+//# sourceMappingURL=component---src-pages-payment-success-js-5d407b2f290570492fe3.js.map
