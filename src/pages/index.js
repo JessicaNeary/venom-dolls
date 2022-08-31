@@ -21,10 +21,10 @@ function Home({ location }) {
           <div className="col-12 col-md-6 ms-md-4 py-4 p-sm-4">
             <h1>Venom Dolls</h1>
             <h2 className="h6 mt-2 mb-4 fw-light text-light">
-              Venom Dolls are a 3 piece all-girl punk/alt rock band formed at
-              the end of 2020. With a freshly released EP, their fast paced,
-              highly relatable tunes are sure to get you
-              dancing/moshing/accidentally injuring your neighbor.
+              Venom Dolls are a 3 piece queer punk/alt rock band formed at the
+              end of 2020. With a freshly released EP, their fast paced, highly
+              relatable tunes are sure to get you dancing/moshing/accidentally
+              injuring your neighbor.
             </h2>
             <Link to="/music" className="listen-btn btn btn-outline-light mt-2">
               Listen now
