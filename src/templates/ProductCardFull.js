@@ -19,7 +19,9 @@ const ProductCardFull = ({ data: { stripePrice, images } }) => {
   const [size, setSize] = useState(null);
   const dispatch = useDispatch();
 
-  const needsSize = stripePrice.product.name !== "Face Mask";
+  const needsSize =
+    stripePrice.product.name !== "Face Mask" &&
+    stripePrice.product.name !== "Stickers";
 
   const handleBuy = () => {
     if (!needsSize || size) {
